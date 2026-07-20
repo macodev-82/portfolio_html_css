@@ -142,7 +142,7 @@ portfolio_html_css-main/
 
 ### Prioridad alta
 
-- Conflicto CSS confirmado en `.nav-toggle`: dentro de `@media (max-width: 768px)` se establece `display: flex`, pero una regla posterior con la misma especificidad vuelve a establecer `display: none`.
+- Conflicto CSS de `.nav-toggle` corregido: la regla móvil ahora utiliza `button.nav-toggle`, aumentando su especificidad para que `display: flex` prevalezca sobre la regla base posterior `display: none`.
 - Se confirmaron cuatro enlaces provisionales con `href="#"` en la sección de proyectos.
 - Los proyectos de ejemplo todavía deben sustituirse por proyectos reales.
 - Los enlaces externos deben validarse uno por uno.
@@ -251,6 +251,14 @@ Para este proyecto y todos los proyectos futuros:
 - Se confirmó el conflicto CSS de `.nav-toggle` que puede ocultar el menú móvil.
 - Se localizaron cuatro enlaces provisionales con `href="#"`.
 - Se confirmó la estructura semántica incorrecta de las listas de tecnologías.
+- Se corrigió únicamente el conflicto CSS del botón hamburguesa en `css/styles.css`.
+- Se cambió el selector móvil de `.nav-toggle` a `button.nav-toggle`.
+- Se conservó intacta la regla base `.nav-toggle { display: none; }` para escritorio.
+- Se inició el servidor local con Python en `http://127.0.0.1:8000`.
+- El servidor respondió correctamente con `HTTP 200 OK`.
+- Se realizó una validación visual móvil en una ventana de `390 × 844`.
+- La captura confirmó que el botón hamburguesa aparece correctamente en la parte superior derecha.
+- La lógica JavaScript existente para abrir y cerrar el menú se conservó sin modificaciones.
 
 ## 14. Próximo paso
 

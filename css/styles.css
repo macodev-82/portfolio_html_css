@@ -817,7 +817,7 @@ footer {
 
   /* ── NAVEGACIÓN EN MÓVIL ───────────────────────────────────────────── */
 
-  .nav-toggle {
+  button.nav-toggle {
     display: flex;
   }
 
