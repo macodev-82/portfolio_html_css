@@ -142,16 +142,16 @@ portfolio_html_css-main/
 
 ### Prioridad alta
 
-- Revisar el posible conflicto CSS del botón del menú móvil.
-- Reemplazar enlaces provisionales con `href="#"`.
-- Sustituir proyectos genéricos por proyectos reales.
-- Validar todos los enlaces externos.
-- Confirmar el enlace real de LinkedIn.
-- Probar completamente el formulario de contacto.
+- Conflicto CSS confirmado en `.nav-toggle`: dentro de `@media (max-width: 768px)` se establece `display: flex`, pero una regla posterior con la misma especificidad vuelve a establecer `display: none`.
+- Se confirmaron cuatro enlaces provisionales con `href="#"` en la sección de proyectos.
+- Los proyectos de ejemplo todavía deben sustituirse por proyectos reales.
+- Los enlaces externos deben validarse uno por uno.
+- El enlace real de LinkedIn debe confirmarse.
+- El formulario de contacto con Formspree debe probarse de extremo a extremo.
 
 ### Prioridad media
 
-- Corregir la semántica de las listas de tecnologías.
+- Se confirmó un problema semántico: los elementos `<ul class="proyecto-tecnologias">` contienen `<span>` como hijos directos; deben contener elementos `<li>`.
 - Añadir capturas reales de proyectos.
 - Mejorar el Hero.
 - Actualizar la presentación profesional.
@@ -245,6 +245,12 @@ Para este proyecto y todos los proyectos futuros:
 - Se cancelaron esos procesos con `Ctrl + C`.
 - Se verificó que la rama seguía limpia y que la guía todavía no existía.
 - Se sustituyó el método anterior por una creación no interactiva mediante Base64.
+- Se validó la guía maestra como archivo UTF-8 de 260 líneas y sin errores de formato Git.
+- Se creó el commit `4cdbb52 docs: add portfolio v2 master guide`.
+- Se auditó el código sin modificarlo.
+- Se confirmó el conflicto CSS de `.nav-toggle` que puede ocultar el menú móvil.
+- Se localizaron cuatro enlaces provisionales con `href="#"`.
+- Se confirmó la estructura semántica incorrecta de las listas de tecnologías.
 
 ## 14. Próximo paso
 
