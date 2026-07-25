@@ -54,6 +54,10 @@
   /* Bordes */
   --color-borde:          rgba(100, 255, 218, 0.15); /* Borde sutil con tinte acento */
 
+  /* Fondo atmosférico — Capa 1 (profundidad global, muy sutil) */
+  --color-grid-linea:     rgba(100, 255, 218, 0.035); /* Líneas de cuadrícula técnica */
+  --color-glow-ambiental: rgba(100, 255, 218, 0.05);  /* Glow radial ambiental */
+
 
   /* ── TIPOGRAFÍA ──────────────────────────────────────────────────────── */
 
@@ -123,6 +127,20 @@ html {
 body {
   margin: 0;           /* Elimina el margen por defecto de todos los navegadores */
   background-color: var(--color-fondo);
+  /*
+    Profundidad global (Capa 1): dos glows radiales muy sutiles + una
+    cuadrícula técnica discreta. Se dibujan sobre el body, así que
+    cualquier sección sin fondo propio (hero, habilidades, trayectoria,
+    contacto, footer) los hereda automáticamente sin tocar esas reglas.
+    Sin background-attachment: fixed — evita problemas de repintado
+    conocidos en Safari móvil.
+  */
+  background-image:
+    radial-gradient(ellipse 900px 600px at 15% 0%, var(--color-glow-ambiental), transparent 60%),
+    radial-gradient(ellipse 700px 500px at 85% 45%, var(--color-glow-ambiental), transparent 65%),
+    repeating-linear-gradient(0deg,  var(--color-grid-linea) 0px, var(--color-grid-linea) 1px, transparent 1px, transparent 40px),
+    repeating-linear-gradient(90deg, var(--color-grid-linea) 0px, var(--color-grid-linea) 1px, transparent 1px, transparent 40px);
+  background-repeat: no-repeat, no-repeat, repeat, repeat;
   color: var(--color-texto);
   font-family: var(--fuente-principal);
   font-size: 16px;     /* Base: 1rem = 16px */
@@ -210,9 +228,11 @@ header {
     backdrop-filter: blur() aplica desenfoque a lo que hay DETRÁS del header —
     el famoso efecto "vidrio esmerilado" (frosted glass).
   */
-  backdrop-filter: blur(10px);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
 
   border-bottom: 1px solid var(--color-borde);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
   padding: var(--espacio-sm) 0;
 }
 
@@ -410,6 +430,21 @@ section {
   position: relative;  /* Contexto para el ::after */
 }
 
+/* Iluminación ambiental muy sutil detrás del título (Capa 1).
+   z-index: -1 lo mantiene detrás del texto — no reduce su contraste. */
+.seccion-titulo::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  width: 240px;
+  height: 120px;
+  background: radial-gradient(closest-side, var(--color-glow-ambiental), transparent 70%);
+  z-index: -1;
+  pointer-events: none;
+}
+
 /* La línea decorativa debajo de cada título de sección.
    Se crea con CSS puro — no existe en el HTML. */
 .seccion-titulo::after {
@@ -428,12 +463,19 @@ section {
    ========================================================================= */
 
 .sobre-mi {
-  background-color: var(--color-fondo-claro);
   /*
-    El fondo levemente diferente crea separación visual entre secciones
-    sin necesitar bordes ni separadores explícitos.
-    El ojo humano percibe el cambio automáticamente.
+    Mismo color que antes (--color-fondo-claro = rgb(17, 34, 64)), pero
+    como degradado vertical que se desvanece en los bordes de la sección
+    (Capa 1) en vez de un bloque plano — evita el corte abrupto entre
+    secciones y dejar ver la atmósfera del body por debajo.
   */
+  background: linear-gradient(
+    180deg,
+    rgba(17, 34, 64, 0)    0%,
+    rgba(17, 34, 64, 0.94) 10%,
+    rgba(17, 34, 64, 0.94) 90%,
+    rgba(17, 34, 64, 0)    100%
+  );
 }
 
 .sobre-mi-texto {
@@ -531,7 +573,14 @@ section {
    ========================================================================= */
 
 .proyectos {
-  background-color: var(--color-fondo-claro);
+  /* Mismo tratamiento de degradado suave que .sobre-mi — ver comentario allí. */
+  background: linear-gradient(
+    180deg,
+    rgba(17, 34, 64, 0)    0%,
+    rgba(17, 34, 64, 0.94) 10%,
+    rgba(17, 34, 64, 0.94) 90%,
+    rgba(17, 34, 64, 0)    100%
+  );
 }
 
 .proyectos-grid {
@@ -988,7 +1037,8 @@ footer {
 .header--scrolled {
   padding: 6px 0;
   background-color: rgba(10, 25, 47, 0.98);
-  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.4);
+  border-bottom-color: rgba(100, 255, 218, 0.25);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.45), 0 1px 0 rgba(100, 255, 218, 0.08);
 }
 
 
