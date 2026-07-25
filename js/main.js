@@ -61,6 +61,10 @@ const i18n = {
     'proy3-titulo': 'Python Console Project',
     'proy3-desc':   'Proyecto de consola en Python. Trabajé con estructuras de datos, funciones, manejo de archivos y lógica de programación básica. Versionado con Git desde el primer commit.',
     'btn-demo': 'Demo',
+    'btn-demo-proximamente': 'Demo próximamente',
+    'btn-repo-proximamente': 'Repositorio próximamente',
+    'btn-demo-proximamente-aria': 'Demo aún no disponible',
+    'btn-repo-proximamente-aria': 'Repositorio aún no disponible',
     // contacto
     'contact-titulo':        'Contacto',
     'contact-desc':          'Estoy abierto a colaboraciones, proyectos y oportunidades de aprendizaje. Si quieres trabajar conmigo o simplemente hablar de tecnología, escríbeme.',
@@ -132,6 +136,10 @@ const i18n = {
     'proy3-titulo': 'Python Console Project',
     'proy3-desc':   'A Python console project. I worked with data structures, functions, file handling and basic programming logic. Versioned with Git from the first commit.',
     'btn-demo': 'Demo',
+    'btn-demo-proximamente': 'Demo coming soon',
+    'btn-repo-proximamente': 'Repository coming soon',
+    'btn-demo-proximamente-aria': 'Demo not available yet',
+    'btn-repo-proximamente-aria': 'Repository not available yet',
     // contact
     'contact-titulo':        'Contact',
     'contact-desc':          "I'm open to collaborations, projects and learning opportunities. If you want to work with me or just talk about technology, write to me.",
@@ -171,6 +179,12 @@ function setLanguage(lang) {
     const key = el.getAttribute('data-i18n-ph');
     const val = i18n[lang][key];
     if (val) el.placeholder = val;
+  });
+
+  document.querySelectorAll('[data-i18n-aria]').forEach(el => {
+    const key = el.getAttribute('data-i18n-aria');
+    const val = i18n[lang][key];
+    if (val) el.setAttribute('aria-label', val);
   });
 
   langToggleBtn.textContent = lang === 'es' ? 'EN' : 'ES';
