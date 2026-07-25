@@ -1151,6 +1151,29 @@ footer {
 }
 
 
+/* ── SKIP LINK — Accesibilidad de teclado ──────────────────────────────── */
+
+.skip-link {
+  position: absolute;
+  top: var(--espacio-sm);
+  left: var(--espacio-sm);
+  z-index: 1000;
+  background-color: var(--color-acento);
+  color: var(--color-fondo);
+  font-family: var(--fuente-mono);
+  font-size: 0.9rem;
+  font-weight: 700;
+  padding: var(--espacio-xs) var(--espacio-md);
+  border-radius: var(--radio-sm);
+  transform: translateY(-150%);
+  transition: transform 0.2s ease;
+}
+
+.skip-link:focus {
+  transform: translateY(0);
+}
+
+
 /* ── FOCUS VISIBLE — Accesibilidad de teclado ──────────────────────────── */
 
 :focus-visible {
@@ -1286,4 +1309,48 @@ footer {
   width: 2rem;
   height: 2rem;
   margin: 0 auto;
+}
+
+
+/* =========================================================================
+   FASE 5 — Accesibilidad: prefers-reduced-motion
+   =========================================================================
+   Si el usuario activó "reducir movimiento" en su sistema operativo,
+   desactivamos animaciones y transiciones decorativas. El contenido
+   permanece completamente visible y funcional — solo se elimina el
+   movimiento.
+   ========================================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  html {
+    scroll-behavior: auto;
+  }
+
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .hero-avatar {
+    animation: none;
+  }
+
+  .hero-titulo::after {
+    animation: none;
+  }
+
+  .fade-in {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  .habilidad-item:hover,
+  .proyecto-card:hover {
+    transform: none;
+  }
+
 }

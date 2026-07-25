@@ -13,6 +13,7 @@ const i18n = {
     'nav-habilidades':  'Habilidades',
     'nav-proyectos':    'Proyectos',
     'nav-contacto':     'Contacto',
+    'skip-link':        'Saltar al contenido',
     // hero
     'hero-saludo':       'Hola, soy',
     'hero-desc':         'Construyo proyectos reales aprendiendo HTML, CSS, Python y Linux desde cero. Creo en entender cada línea de código que escribo.',
@@ -88,6 +89,7 @@ const i18n = {
     'nav-habilidades':  'Skills',
     'nav-proyectos':    'Projects',
     'nav-contacto':     'Contact',
+    'skip-link':        'Skip to content',
     // hero
     'hero-saludo':       "Hi, I'm",
     'hero-desc':         "I build real projects while learning HTML, CSS, Python and Linux from scratch. I believe in understanding every line of code I write.",
@@ -158,6 +160,11 @@ const i18n = {
 };
 
 
+// ── ACCESSIBILITY: REDUCED MOTION ──────────────────────────────────────────
+
+const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+
 // ── LANGUAGE MANAGEMENT ────────────────────────────────────────────────────
 
 let currentLang = localStorage.getItem('lang') || 'es';
@@ -195,6 +202,10 @@ function setLanguage(lang) {
   phraseIndex = 0;
   charIndex   = 0;
   isDeleting  = false;
+
+  if (prefersReducedMotion) {
+    typingTarget.textContent = phrases[0];
+  }
 }
 
 langToggleBtn.addEventListener('click', () => {
@@ -319,7 +330,7 @@ window.addEventListener('scroll', () => {
 }, { passive: true });
 
 btnTop.addEventListener('click', () => {
-  window.scrollTo({ top: 0, behavior: 'smooth' });
+  window.scrollTo({ top: 0, behavior: prefersReducedMotion ? 'auto' : 'smooth' });
 });
 
 
@@ -362,4 +373,7 @@ if (contactForm) {
 // ── INIT ───────────────────────────────────────────────────────────────────
 
 setLanguage(currentLang);
-type();
+
+if (!prefersReducedMotion) {
+  type();
+}
