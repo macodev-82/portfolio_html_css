@@ -7,180 +7,463 @@
 
 const i18n = {
   es: {
+    'meta-title':       'Maahcodev | Desarrollador Python Backend y Full-Stack',
+    'meta-description': 'Portfolio de Maahcodev: desarrollo backend con Python y FastAPI, junto con experiencias web modernas, accesibles y orientadas a producción.',
     // nav
     'nav-sobre':        'Sobre mí',
     'nav-trayectoria':  'Trayectoria',
-    'nav-habilidades':  'Habilidades',
     'nav-proyectos':    'Proyectos',
+    'nav-servicios':    'Servicios',
     'nav-contacto':     'Contacto',
+    'nav-cta':          'Iniciar proyecto',
+    'nav-primary-aria': 'Navegación principal',
+    'nav-logo-aria':    'Maahcodev — Ir al inicio',
+    'skip-link':        'Saltar al contenido',
+    'nav-menu-open-aria':  'Abrir menú',
+    'nav-menu-close-aria': 'Cerrar menú',
+    'lang-switch-en-aria': 'Cambiar a inglés',
+    'lang-switch-es-aria': 'Cambiar a español',
+    'theme-switch-light-aria': 'Activar modo claro',
+    'theme-switch-dark-aria':  'Activar modo oscuro',
+    'back-top-aria':       'Volver arriba',
     // hero
-    'hero-saludo':       'Hola, soy',
-    'hero-desc':         'Construyo proyectos reales aprendiendo HTML, CSS, Python y Linux desde cero. Creo en entender cada línea de código que escribo.',
-    'hero-btn-ver':      'Ver mis proyectos',
-    'hero-btn-contacto': 'Contáctame',
-    'typing-phrases':    ['Desarrollador Web en Formación', 'Aprendiz de HTML & CSS', 'Entusiasta de Python', 'Fan de Linux y la terminal'],
-    // sobre mí
-    'sobre-titulo': 'Sobre mí',
-    'sobre-p1': 'Soy un desarrollador web autodidacta basado en Miami, FL. Empecé con curiosidad genuina sobre cómo funciona internet por dentro — y eso me llevó a construir este portafolio desde cero, línea a línea, sin atajos.',
-    'sobre-p2': 'Mi stack actual incluye <strong>HTML</strong> y <strong>CSS</strong> para la web, <strong>Python</strong> para scripting y lógica, y <strong>Linux/Ubuntu</strong> como entorno principal de trabajo. Uso <strong>Git y GitHub</strong> para versionar cada proyecto desde el primer commit.',
-    'sobre-p3': 'Mi meta no es solo escribir código — es entender por qué funciona. Cada proyecto que construyo es una oportunidad de aprender algo que no sabía el día anterior.',
+    'hero-disponibilidad': 'Disponible para proyectos seleccionados',
+    'hero-marca':          'creador de Maahcodev',
+    'hero-desc':           'Construyo APIs y aplicaciones web con Python y FastAPI, conectando lógica backend, interfaces accesibles y flujos de trabajo claros desde la idea hasta una versión funcional.',
+    'hero-btn-ver':        'Ver proyectos',
+    'hero-btn-iniciar':    'Iniciar un proyecto',
+    'hero-stack-kicker':   'Stack principal',
+    'hero-stack-aria':     'Tecnologías principales',
+    'hero-panel-status':   'composición activa',
+    'hero-panel-kicker':   'Arquitectura de trabajo',
+    'hero-layer-backend':  'Backend',
+    'hero-layer-web':      'Interfaz web',
+    'hero-layer-workflow': 'Flujo Linux',
+    'hero-terminal-line':  'python · fastapi · web',
+    // servicios y transición
+    'servicios-titulo':        'Capacidades técnicas',
+    'servicios-intro':         'Competencias que aplico para construir y validar proyectos web: backend con Python, interfaces accesibles y flujos de trabajo reproducibles.',
+    'servicio-backend-titulo': 'Python y backend',
+    'servicio-backend-desc':   'APIs, integraciones y automatizaciones en Python con alcances definidos y validación técnica.',
+    'servicio-web-titulo':     'Experiencias web',
+    'servicio-web-desc':       'Interfaces profesionales, responsive y bilingües.',
+    'servicio-flujo-titulo':   'Flujo técnico',
+    'servicio-flujo-desc':     'Git, GitHub y Linux para trabajar con trazabilidad.',
+    // proyectos destacados
+    'projects-title':          'Proyectos destacados',
+    'projects-intro':          'Tres proyectos privados en desarrollo, con hitos funcionales y evidencia técnica documentada.',
+    'project-private':         'Privado · En desarrollo',
+    'family-role':             'Caso de estudio privado de backend y desarrollo full-stack',
+    'family-desc':             'Aplicación privada que integra un catálogo multimedia con Emby mediante FastAPI y una interfaz web. Se presenta exclusivamente con contenido sanitizado, sin datos reales ni acceso al repositorio.',
+    'family-stack-aria':       'Tecnologías de FamilyMovie',
+    'family-action':           'Caso de estudio privado',
+    'cheatsheet-role':         'Aplicación educativa privada',
+    'cheatsheet-desc':         'Aplicación educativa con 39 ejercicios validados, búsqueda, favoritos y una experiencia bilingüe ES/EN.',
+    'cheatsheet-stack-aria':   'Tecnologías de Cheat Sheet — Master Python 2026',
+    'private-project-action':  'Proyecto privado',
+    'nodedrive-role':          'Laboratorio privado en desarrollo',
+    'nodedrive-desc':          'Laboratorio responsive para integrar Seafile de forma segura y en modo de solo lectura, con interfaz ES/EN y temas claro y oscuro.',
+    'nodedrive-stack-aria':    'Tecnologías de NodeDrive UI Lab',
+    'private-case-action':     'Caso de estudio privado',
+    'case-view-action':            'Ver caso de estudio',
+    'case-open-family-aria':        'Ver caso de estudio de FamilyMovie',
+    'case-open-cheatsheet-aria':    'Ver caso de estudio de Cheat Sheet — Master Python 2026',
+    'case-open-nodedrive-aria':     'Ver caso de estudio de NodeDrive UI Lab',
+    'case-close':                  'Cerrar caso de estudio',
+    'case-status-private':         'Repositorio privado',
+    'case-dialog-kicker':          'Caso de estudio · Proyecto privado',
+    'case-preview-pending':        'Vista previa pendiente hasta completar el proyecto',
+    'case-preview-aria':           'Espacio preparado para la vista previa del proyecto',
+    'case-features-title':         'Funciones verificadas',
+    'case-stack-title':            'Tecnologías utilizadas',
+    'case-previous':               'Proyecto anterior',
+    'case-next':                   'Proyecto siguiente',
+    'family-case-desc':            'Proyecto backend/full-stack privado que integra Emby de forma segura y de solo lectura mediante FastAPI y HTTPX, con interfaz web y pruebas con pytest.',
+    'family-feature-emby':         'Integración segura y de solo lectura con Emby',
+    'family-feature-posters':      'Protección de pósteres mediante claves opacas',
+    'family-feature-interface':    'Interfaz web con HTML, CSS y JavaScript',
+    'family-feature-tests':        'Pruebas con pytest',
+    'cheatsheet-case-desc':        'Aplicación educativa privada con 39 ejercicios validados, búsqueda, favoritos e interfaz bilingüe ES/EN.',
+    'cheatsheet-feature-exercises':'39 ejercicios validados',
+    'cheatsheet-feature-search':   'Búsqueda de ejercicios',
+    'cheatsheet-feature-favorites':'Gestión de favoritos',
+    'cheatsheet-feature-language': 'Interfaz ES/EN',
+    'nodedrive-case-desc':         'Laboratorio privado y responsive que integra Seafile en modo de solo lectura, con interfaz bilingüe y temas claro y oscuro.',
+    'nodedrive-feature-seafile':   'Integración Seafile de solo lectura',
+    'nodedrive-feature-responsive':'Interfaz responsive',
+    'nodedrive-feature-language':  'Interfaz ES/EN',
+    'nodedrive-feature-theme':     'Modo claro y oscuro',
+    // servicios
+    'services-detail-title': 'Servicios',
+    'services-detail-intro': 'Servicios concretos para presentar una marca, organizar contenido y construir interfaces funcionales con un alcance claramente definido.',
+    'services-note':         'Cada servicio se acuerda con un alcance, entregables y límites claros. Las automatizaciones con Python se evalúan caso por caso.',
+    'service1-title':        'Landing pages y portfolios',
+    'service1-desc':         'Páginas de presentación enfocadas en identidad, contenido y llamados a la acción claros.',
+    'service2-title':        'Sitios informativos',
+    'service2-desc':         'Estructuras accesibles para organizar servicios, perfiles y contenido esencial.',
+    'service3-title':        'Diseño responsive y ES/EN',
+    'service3-desc':         'Adaptación para escritorio, tablet y móvil, con contenido disponible en español e inglés.',
+    'service4-title':        'Formularios y accesibilidad',
+    'service4-desc':         'Integración de formularios y mejoras prácticas de teclado, foco, contraste y legibilidad.',
+    'service5-title':        'Prototipos y automatización limitada',
+    'service5-desc':         'Prototipos web y automatizaciones pequeñas con Python, siempre definidos caso por caso.',
+    // sobre maahcodev
+    'about-signature': 'Marcos Alvarez, creador de Maahcodev.',
+    'about-title':     'Sobre Maahcodev',
+    'about-p1':        'Soy desarrollador autodidacta, enfocado en backend con Python y desarrollo full-stack. Construyo proyectos prácticos que convierten el aprendizaje técnico en soluciones reales.',
+    'about-p2':        'Trabajo con Linux, Git y tecnologías web; priorizo sistemas claros, seguros y mantenibles. El aprendizaje continuo forma parte de cada iteración.',
+    'manifest-title':   'Principios de trabajo',
+    'manifest-focus':   'claridad antes que complejidad',
+    'manifest-build':   'proyectos prácticos y verificables',
+    'manifest-system':  'Linux, Git y mejora continua',
+    'manifest-quality': 'seguridad, acceso y mantenimiento',
+    // proceso
+    'process-title':  'Proceso de trabajo',
+    'process-intro':  'Un proceso claro para convertir una necesidad concreta en una solución web validada.',
+    'process1-title': 'Descubrir',
+    'process1-desc':  'Definir el objetivo, el contenido disponible y las restricciones reales.',
+    'process2-title': 'Diseñar',
+    'process2-desc':  'Definir jerarquía, estructura y comportamiento antes de construir.',
+    'process3-title': 'Construir',
+    'process3-desc':  'Construir por iteraciones pequeñas con código claro y trazable.',
+    'process4-title': 'Validar',
+    'process4-desc':  'Revisar el comportamiento responsive, la accesibilidad, el contenido y el funcionamiento final.',
     // trayectoria
-    'tray-titulo':  'Trayectoria',
-    'tray1-titulo': 'El comienzo',
-    'tray1-desc':   'Empecé a explorar programación por curiosidad propia. Primeras búsquedas, primeros tutoriales — entendí que quería construir cosas para la web.',
-    'tray2-titulo': 'HTML & CSS desde cero',
-    'tray2-desc':   'Me enfoqué en entender la web de verdad: HTML semántico, Flexbox, Grid, responsive design — sin frameworks, sin atajos. Cada propiedad, entendida.',
-    'tray3-titulo': 'Python — primer lenguaje',
-    'tray3-desc':   'Aprendí a programar con Python: estructuras de datos, funciones, manejo de archivos y lógica de programación aplicada a proyectos reales.',
-    'tray4-titulo': 'Linux & Terminal',
-    'tray4-desc':   'Migré a Ubuntu como entorno de trabajo principal. La terminal dejó de intimidarme — ahora es mi herramienta favorita.',
-    'tray5-titulo': 'Git & GitHub',
-    'tray5-desc':   'Empecé a versionar todo desde el primer commit. Comprendí el flujo de trabajo profesional: ramas, pull requests, historial limpio.',
-    'tray6-titulo': 'Portfolio — en curso',
-    'tray6-desc':   'Construí este sitio desde cero: HTML semántico, CSS puro, JavaScript vanilla. Sin frameworks. Mi primer proyecto completo y público.',
-    'tray7-titulo': 'uv — gestión de entornos',
-    'tray7-desc':   'Adopté uv como herramienta principal para gestionar entornos virtuales y dependencias en Python. Más rápido y moderno que pip tradicional.',
-    'tray8-titulo': 'FastAPI',
-    'tray8-desc':   'Primer framework web en Python. Construí APIs REST con validación automática, documentación interactiva y tipado estático.',
+    'journey-title':    'Trayectoria resumida',
+    'journey-intro':    'Una progresión práctica desde los fundamentos web hasta el desarrollo backend y full-stack.',
+    'journey1-label':   'Fundamentos',
+    'journey1-title':   'Fundamentos web',
+    'journey1-desc':    'HTML semántico, CSS, maquetación y diseño responsive como base de cada interfaz.',
+    'journey2-title':   'Python y lógica',
+    'journey2-desc':    'Programación, estructuras de datos y automatización aplicadas a proyectos.',
+    'journey3-label':   'Flujo técnico',
+    'journey3-title':   'Linux, Git y flujo profesional',
+    'journey3-desc':    'Terminal, control de versiones y trabajo reproducible como entorno habitual.',
+    'journey4-label':   'Enfoque actual',
+    'journey4-title':   'FastAPI y full-stack',
+    'journey4-desc':    'APIs, integraciones y experiencias web completas con validación y pruebas.',
     // habilidades
-    'hab-titulo':      'Habilidades',
-    'hab-html-desc':   'Estructura semántica y accesible para la web',
-    'hab-css-desc':    'Diseño visual, layout y responsive design',
-    'hab-python-desc': 'Scripting, lógica y proyectos de consola',
-    'hab-linux-desc':  'Entorno de trabajo principal y terminal',
-    'hab-git-desc':    'Control de versiones y flujo de trabajo',
-    'hab-github-desc':  'Repositorios, colaboración y portafolio público',
-    'hab-uv-desc':      'Gestor moderno de paquetes y entornos Python',
-    'hab-fastapi-desc': 'Framework web para APIs REST con Python',
-    // proyectos
-    'proy-titulo':  'Proyectos',
-    'proy1-titulo': 'Portfolio Personal',
-    'proy1-desc':   'El sitio que estás viendo ahora mismo. Construido desde cero con HTML semántico y CSS puro — sin frameworks ni librerías. Diseño limpio, responsive y preparado para crecer.',
-    'proy2-titulo': 'Landing Page Practice',
-    'proy2-desc':   'Ejercicio práctico de diseño web. Una landing page completa con hero section, sección de características y formulario de contacto — solo HTML y CSS.',
-    'proy3-titulo': 'Python Console Project',
-    'proy3-desc':   'Proyecto de consola en Python. Trabajé con estructuras de datos, funciones, manejo de archivos y lógica de programación básica. Versionado con Git desde el primer commit.',
-    'btn-demo': 'Demo',
+    'skills-title':         'Habilidades y herramientas',
+    'skills-intro':         'Tecnologías que utilizo en proyectos, prototipos y laboratorios técnicos en desarrollo.',
+    'skills-backend-desc':  'Lógica, APIs, integraciones y pruebas.',
+    'skills-frontend-desc': 'Estructura, presentación e interacción web.',
+    'skills-workflow-desc': 'Entorno, versiones y gestión técnica.',
+    // CTA final
+    'final-cta-title':     '¿Tienes una idea para una API, una landing page o un prototipo web?',
+    'final-cta-desc':      'Definamos un alcance claro, entregables concretos y el siguiente paso para convertirla en una versión funcional.',
+    'final-cta-primary':   'Iniciar un proyecto',
+    'final-cta-secondary': 'Ver proyectos',
     // contacto
-    'contact-titulo':        'Contacto',
-    'contact-desc':          'Estoy abierto a colaboraciones, proyectos y oportunidades de aprendizaje. Si quieres trabajar conmigo o simplemente hablar de tecnología, escríbeme.',
-    'contact-sub':           'Encuéntrame en',
+    'contact-title':         'Contacto',
+    'contact-intro':         'Disponible para proyectos web seleccionados, colaboraciones y oportunidades de crecimiento profesional.',
+    'contact-availability':  'Disponible para nuevas conversaciones',
+    'contact-channels':      'Canales de contacto',
+    'contact-note':          'No incluyas contraseñas, tokens ni información sensible en el formulario.',
     'contact-label-nombre':  'Nombre',
-    'contact-label-email':   'Email',
+    'contact-label-email':   'Correo electrónico',
     'contact-label-mensaje': 'Mensaje',
     'contact-ph-nombre':     'Tu nombre',
     'contact-ph-email':      'tu@email.com',
-    'contact-ph-mensaje':    '¿En qué puedo ayudarte?',
+    'contact-ph-mensaje':    'Cuéntame brevemente sobre tu proyecto',
     'contact-btn':           'Enviar mensaje',
+    'contact-sending':       'Enviando mensaje…',
+    'contact-success':       '✓ Mensaje enviado. Te responderé pronto.',
+    'contact-error':         'No se pudo enviar el mensaje. Inténtalo de nuevo o utiliza un canal directo.',
     // footer
-    'footer-texto': 'Diseñado y construido por <strong>Marcos Alvarez</strong> &copy; 2026',
-    'footer-sub':   'Hecho con HTML y CSS puro — sin frameworks, sin atajos.',
+    'footer-brand-copy': 'Portfolio profesional de Marcos Alvarez, creador de Maahcodev.',
+    'footer-nav-title':   'Explorar',
+    'footer-channel-title': 'Canales',
+    'footer-tech-title':  'Tecnologías',
+    'footer-nav-aria':   'Navegación del pie de página',
+    'footer-tech-aria':  'Tecnologías principales',
+    'footer-stack':      'HTML, CSS y JavaScript · Flujo de trabajo con Git y Linux',
+    'footer-rights':     '© 2026 Marcos Alvarez. Todos los derechos reservados.',
   },
 
   en: {
+    'meta-title':       'Maahcodev | Python Backend & Full-Stack Developer',
+    'meta-description': 'Maahcodev portfolio: Python and FastAPI backend development with modern, accessible, production-minded web experiences.',
     // nav
-    'nav-sobre':        'About me',
+    'nav-sobre':        'About',
     'nav-trayectoria':  'Journey',
-    'nav-habilidades':  'Skills',
     'nav-proyectos':    'Projects',
+    'nav-servicios':    'Services',
     'nav-contacto':     'Contact',
+    'nav-cta':          'Start a project',
+    'nav-primary-aria': 'Primary navigation',
+    'nav-logo-aria':    'Maahcodev — Go to homepage',
+    'skip-link':        'Skip to content',
+    'nav-menu-open-aria':  'Open menu',
+    'nav-menu-close-aria': 'Close menu',
+    'lang-switch-en-aria': 'Switch to English',
+    'lang-switch-es-aria': 'Switch to Spanish',
+    'theme-switch-light-aria': 'Switch to light mode',
+    'theme-switch-dark-aria':  'Switch to dark mode',
+    'back-top-aria':       'Back to top',
     // hero
-    'hero-saludo':       "Hi, I'm",
-    'hero-desc':         "I build real projects while learning HTML, CSS, Python and Linux from scratch. I believe in understanding every line of code I write.",
-    'hero-btn-ver':      'See my projects',
-    'hero-btn-contacto': 'Contact me',
-    'typing-phrases':    ['Web Developer in Training', 'HTML & CSS Learner', 'Python Enthusiast', 'Linux & Terminal Fan'],
-    // about
-    'sobre-titulo': 'About me',
-    'sobre-p1': "I'm a self-taught web developer based in Miami, FL. I started with genuine curiosity about how the internet works from the inside — and that led me to build this portfolio from scratch, line by line, no shortcuts.",
-    'sobre-p2': 'My current stack includes <strong>HTML</strong> and <strong>CSS</strong> for the web, <strong>Python</strong> for scripting and logic, and <strong>Linux/Ubuntu</strong> as my main work environment. I use <strong>Git and GitHub</strong> to version every project from the first commit.',
-    'sobre-p3': "My goal isn't just to write code — it's to understand why it works. Every project I build is an opportunity to learn something I didn't know the day before.",
+    'hero-disponibilidad': 'Available for selected projects',
+    'hero-marca':          'creator of Maahcodev',
+    'hero-desc':           'I build APIs and web applications with Python and FastAPI, connecting backend logic, accessible interfaces, and clear workflows from idea to a working version.',
+    'hero-btn-ver':        'View projects',
+    'hero-btn-iniciar':    'Start a project',
+    'hero-stack-kicker':   'Core stack',
+    'hero-stack-aria':     'Core technologies',
+    'hero-panel-status':   'active composition',
+    'hero-panel-kicker':   'Technical architecture',
+    'hero-layer-backend':  'Backend',
+    'hero-layer-web':      'Web Interface',
+    'hero-layer-workflow': 'Linux Workflow',
+    'hero-terminal-line':  'python · fastapi · web',
+    // services and transition
+    'servicios-titulo':        'Technical capabilities',
+    'servicios-intro':         'Technical capabilities I apply to build and validate web projects: Python backend development, accessible interfaces, and reproducible workflows.',
+    'servicio-backend-titulo': 'Python & Backend',
+    'servicio-backend-desc':   'APIs, integrations, and scoped Python automation with technical validation.',
+    'servicio-web-titulo':     'Web Experiences',
+    'servicio-web-desc':       'Professional, responsive, and bilingual interfaces.',
+    'servicio-flujo-titulo':   'Technical Workflow',
+    'servicio-flujo-desc':     'Git, GitHub, and Linux for traceable development.',
+    // featured projects
+    'projects-title':          'Featured projects',
+    'projects-intro':          'Three private projects in active development, with working milestones and documented technical evidence.',
+    'project-private':         'Private · In development',
+    'family-role':             'Private backend and full-stack case study',
+    'family-desc':             'A private application that integrates a media catalog with Emby through FastAPI and a web interface. It is shown exclusively with sanitized content—never real data or repository access.',
+    'family-stack-aria':       'FamilyMovie technologies',
+    'family-action':           'Private case study',
+    'cheatsheet-role':         'Private educational application',
+    'cheatsheet-desc':         'A private learning application with 39 validated exercises, search, favorites, and a bilingual ES/EN experience.',
+    'cheatsheet-stack-aria':   'Cheat Sheet — Master Python 2026 technologies',
+    'private-project-action':  'Private project',
+    'nodedrive-role':          'Private lab in active development',
+    'nodedrive-desc':          'A responsive lab that integrates Seafile securely in read-only mode, with an ES/EN interface and light and dark themes.',
+    'nodedrive-stack-aria':    'NodeDrive UI Lab technologies',
+    'private-case-action':     'Private case study',
+    'case-view-action':            'View case study',
+    'case-open-family-aria':        'View the FamilyMovie case study',
+    'case-open-cheatsheet-aria':    'View the Cheat Sheet — Master Python 2026 case study',
+    'case-open-nodedrive-aria':     'View the NodeDrive UI Lab case study',
+    'case-close':                  'Close case study',
+    'case-status-private':         'Private repository',
+    'case-dialog-kicker':          'Case study · Private project',
+    'case-preview-pending':        'Preview deferred until the project is complete',
+    'case-preview-aria':           'Reserved area for the project preview',
+    'case-features-title':         'Verified features',
+    'case-stack-title':            'Technologies used',
+    'case-previous':               'Previous project',
+    'case-next':                   'Next project',
+    'family-case-desc':            'A private backend/full-stack project that integrates Emby securely in read-only mode through FastAPI and HTTPX, with a web interface and pytest tests.',
+    'family-feature-emby':         'Secure, read-only Emby integration',
+    'family-feature-posters':      'Poster protection through opaque keys',
+    'family-feature-interface':    'Web interface with HTML, CSS, and JavaScript',
+    'family-feature-tests':        'Testing with pytest',
+    'cheatsheet-case-desc':        'A private educational application with 39 validated exercises, search, favorites, and a bilingual ES/EN interface.',
+    'cheatsheet-feature-exercises':'39 validated exercises',
+    'cheatsheet-feature-search':   'Exercise search',
+    'cheatsheet-feature-favorites':'Favorites management',
+    'cheatsheet-feature-language': 'ES/EN interface',
+    'nodedrive-case-desc':         'A private, responsive lab that integrates Seafile in read-only mode, with a bilingual interface and light and dark themes.',
+    'nodedrive-feature-seafile':   'Read-only Seafile integration',
+    'nodedrive-feature-responsive':'Responsive interface',
+    'nodedrive-feature-language':  'ES/EN interface',
+    'nodedrive-feature-theme':     'Light and dark modes',
+    // services
+    'services-detail-title': 'Services',
+    'services-detail-intro': 'Focused services to present a brand, organize content, and build functional interfaces within a clearly defined scope.',
+    'services-note':         'Each service is agreed with a clear scope, deliverables, and boundaries. Python automation is evaluated case by case.',
+    'service1-title':        'Landing pages and portfolios',
+    'service1-desc':         'Presentation pages focused on brand identity, content, and clear calls to action.',
+    'service2-title':        'Informational websites',
+    'service2-desc':         'Accessible structures for organizing services, profiles, and essential content.',
+    'service3-title':        'Responsive design and ES/EN',
+    'service3-desc':         'Layouts adapted for desktop, tablet, and mobile, with content available in Spanish and English.',
+    'service4-title':        'Forms and accessibility',
+    'service4-desc':         'Form integration and practical improvements to keyboard access, focus, contrast, and readability.',
+    'service5-title':        'Prototypes and limited automation',
+    'service5-desc':         'Web prototypes and small Python automations, always defined on a case-by-case basis.',
+    // about maahcodev
+    'about-signature': 'Marcos Alvarez, creator of Maahcodev.',
+    'about-title':     'About Maahcodev',
+    'about-p1':        'I am a self-taught developer focused on backend development with Python and full-stack web work. I build practical projects that turn technical learning into real solutions.',
+    'about-p2':        'I work with Linux, Git, and web technologies, prioritizing systems that are clear, secure, and maintainable. Continuous learning shapes every iteration.',
+    'manifest-title':   'Working principles',
+    'manifest-focus':   'clarity before complexity',
+    'manifest-build':   'practical, verifiable projects',
+    'manifest-system':  'Linux, Git, and continuous improvement',
+    'manifest-quality': 'security, access, and maintenance',
+    // process
+    'process-title':  'How I work',
+    'process-intro':  'A clear process for turning a specific need into a validated web solution.',
+    'process1-title': 'Discover',
+    'process1-desc':  'Define the goal, available content, and real constraints.',
+    'process2-title': 'Design',
+    'process2-desc':  'Define hierarchy, structure, and behavior before building.',
+    'process3-title': 'Build',
+    'process3-desc':  'Build in small iterations with clear, traceable code.',
+    'process4-title': 'Validate',
+    'process4-desc':  'Review responsive behavior, accessibility, content, and end-to-end functionality.',
     // journey
-    'tray-titulo':  'Journey',
-    'tray1-titulo': 'The beginning',
-    'tray1-desc':   'I started exploring programming out of genuine curiosity. First searches, first tutorials — I realized I wanted to build things for the web.',
-    'tray2-titulo': 'HTML & CSS from scratch',
-    'tray2-desc':   'I focused on truly understanding the web: semantic HTML, Flexbox, Grid, responsive design — no frameworks, no shortcuts. Every property, understood.',
-    'tray3-titulo': 'Python — first language',
-    'tray3-desc':   'I learned to program with Python: data structures, functions, file handling and programming logic applied to real projects.',
-    'tray4-titulo': 'Linux & Terminal',
-    'tray4-desc':   "I switched to Ubuntu as my main work environment. The terminal stopped being intimidating — now it's my favorite tool.",
-    'tray5-titulo': 'Git & GitHub',
-    'tray5-desc':   'I started versioning everything from the first commit. I understood the professional workflow: branches, pull requests, clean history.',
-    'tray6-titulo': 'Portfolio — in progress',
-    'tray6-desc':   'I built this site from scratch: semantic HTML, pure CSS, vanilla JavaScript. No frameworks. My first complete, public project.',
-    'tray7-titulo': 'uv — environment management',
-    'tray7-desc':   'I adopted uv as my main tool for managing virtual environments and dependencies in Python. Faster and more modern than traditional pip.',
-    'tray8-titulo': 'FastAPI',
-    'tray8-desc':   'First Python web framework. I built REST APIs with automatic validation, interactive documentation and static typing.',
+    'journey-title':    'Journey in brief',
+    'journey-intro':    'A practical progression from web foundations to backend and full-stack projects.',
+    'journey1-label':   'Foundation',
+    'journey1-title':   'Web foundations',
+    'journey1-desc':    'Semantic HTML, CSS, layouts, and responsive design as the base of every interface.',
+    'journey2-title':   'Python and logic',
+    'journey2-desc':    'Programming, data structures, and automation applied to projects.',
+    'journey3-label':   'Workflow',
+    'journey3-title':   'Linux, Git, and a professional workflow',
+    'journey3-desc':    'The terminal, version control, and reproducible workflows form my everyday environment.',
+    'journey4-label':   'Current focus',
+    'journey4-title':   'FastAPI and full-stack',
+    'journey4-desc':    'APIs, integrations, and complete web experiences with validation and testing.',
     // skills
-    'hab-titulo':      'Skills',
-    'hab-html-desc':   'Semantic and accessible web structure',
-    'hab-css-desc':    'Visual design, layout and responsive design',
-    'hab-python-desc': 'Scripting, logic and console projects',
-    'hab-linux-desc':  'Main work environment and terminal',
-    'hab-git-desc':    'Version control and workflow',
-    'hab-github-desc':  'Repositories, collaboration and public portfolio',
-    'hab-uv-desc':      'Modern Python package and environment manager',
-    'hab-fastapi-desc': 'Web framework for REST APIs with Python',
-    // projects
-    'proy-titulo':  'Projects',
-    'proy1-titulo': 'Personal Portfolio',
-    'proy1-desc':   "The site you're looking at right now. Built from scratch with semantic HTML and pure CSS — no frameworks or libraries. Clean, responsive design ready to grow.",
-    'proy2-titulo': 'Landing Page Practice',
-    'proy2-desc':   'A practical web design exercise. A complete landing page with hero section, features section and contact form — only HTML and CSS.',
-    'proy3-titulo': 'Python Console Project',
-    'proy3-desc':   'A Python console project. I worked with data structures, functions, file handling and basic programming logic. Versioned with Git from the first commit.',
-    'btn-demo': 'Demo',
+    'skills-title':         'Skills and tools',
+    'skills-intro':         'Technologies I use across projects, prototypes, and technical labs in active development.',
+    'skills-backend-desc':  'Logic, APIs, integrations, and testing.',
+    'skills-frontend-desc': 'Web structure, presentation, and interaction.',
+    'skills-workflow-desc': 'Development environment, version control, and technical workflow.',
+    // final CTA
+    'final-cta-title':     'Have an idea for an API, landing page, or web prototype?',
+    'final-cta-desc':      'Let’s define a clear scope, concrete deliverables, and the next step toward a working version.',
+    'final-cta-primary':   'Start a project',
+    'final-cta-secondary': 'View projects',
     // contact
-    'contact-titulo':        'Contact',
-    'contact-desc':          "I'm open to collaborations, projects and learning opportunities. If you want to work with me or just talk about technology, write to me.",
-    'contact-sub':           'Find me at',
+    'contact-title':         'Contact',
+    'contact-intro':         'Available for selected web projects, collaborations, and professional growth opportunities.',
+    'contact-availability':  'Open to new conversations',
+    'contact-channels':      'Contact channels',
+    'contact-note':          'Do not include passwords, tokens, or sensitive information in the form.',
     'contact-label-nombre':  'Name',
     'contact-label-email':   'Email',
     'contact-label-mensaje': 'Message',
     'contact-ph-nombre':     'Your name',
     'contact-ph-email':      'your@email.com',
-    'contact-ph-mensaje':    'How can I help you?',
+    'contact-ph-mensaje':    'Tell me briefly about your project',
     'contact-btn':           'Send message',
+    'contact-sending':       'Sending message…',
+    'contact-success':       "✓ Message sent. I'll get back to you soon.",
+    'contact-error':         'The message could not be sent. Please try again or use a direct contact channel.',
     // footer
-    'footer-texto': 'Designed and built by <strong>Marcos Alvarez</strong> &copy; 2026',
-    'footer-sub':   'Made with pure HTML and CSS — no frameworks, no shortcuts.',
+    'footer-brand-copy': 'Professional portfolio of Marcos Alvarez, the creator of Maahcodev.',
+    'footer-nav-title':   'Explore',
+    'footer-channel-title': 'Channels',
+    'footer-tech-title':  'Technologies',
+    'footer-nav-aria':   'Footer navigation',
+    'footer-tech-aria':  'Core technologies',
+    'footer-stack':      'HTML, CSS, JavaScript · Git and Linux development workflow',
+    'footer-rights':     '© 2026 Marcos Alvarez. All rights reserved.',
   }
 };
 
 
+// ── ACCESSIBILITY: REDUCED MOTION ──────────────────────────────────────────
+
+const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+
+// ── THEME MANAGEMENT ───────────────────────────────────────────────────────
+
+const themeToggleBtn = document.querySelector('.theme-toggle');
+let currentTheme = document.documentElement.dataset.theme === 'light' ? 'light' : 'dark';
+
+function updateThemeToggleLabel() {
+  const labelKey = currentTheme === 'dark'
+    ? 'theme-switch-light-aria'
+    : 'theme-switch-dark-aria';
+  const label = i18n[currentLang][labelKey];
+
+  themeToggleBtn.setAttribute('data-i18n-aria', labelKey);
+  themeToggleBtn.setAttribute('data-i18n-title', labelKey);
+  themeToggleBtn.setAttribute('aria-label', label);
+  themeToggleBtn.setAttribute('title', label);
+  themeToggleBtn.setAttribute('aria-pressed', String(currentTheme === 'light'));
+}
+
+function setTheme(theme, { persist = true } = {}) {
+  currentTheme = theme === 'light' ? 'light' : 'dark';
+
+  if (currentTheme === 'light') {
+    document.documentElement.dataset.theme = 'light';
+  } else {
+    delete document.documentElement.dataset.theme;
+  }
+
+  if (persist) {
+    try {
+      localStorage.setItem('theme', currentTheme);
+    } catch {}
+  }
+
+  updateThemeToggleLabel();
+}
+
+themeToggleBtn.addEventListener('click', () => {
+  setTheme(currentTheme === 'dark' ? 'light' : 'dark');
+});
+
+
 // ── LANGUAGE MANAGEMENT ────────────────────────────────────────────────────
 
-let currentLang = localStorage.getItem('lang') || 'es';
+function normalizeLanguage(lang) {
+  return lang === 'es' || lang === 'en' ? lang : 'es';
+}
+
+let currentLang = 'es';
+try {
+  currentLang = normalizeLanguage(localStorage.getItem('lang'));
+} catch {}
+
 const langToggleBtn = document.querySelector('.lang-toggle');
 
 function setLanguage(lang) {
-  currentLang = lang;
-  localStorage.setItem('lang', lang);
-  document.documentElement.lang = lang;
+  currentLang = normalizeLanguage(lang);
+
+  try {
+    localStorage.setItem('lang', currentLang);
+  } catch {}
+
+  document.documentElement.lang = currentLang;
+
+  const pageTitle = i18n[currentLang]['meta-title'];
+  const pageDescription = i18n[currentLang]['meta-description'];
+
+  document.title = pageTitle;
+  document.querySelector('meta[name="description"]')?.setAttribute('content', pageDescription);
+  document.querySelector('meta[property="og:title"]')?.setAttribute('content', pageTitle);
+  document.querySelector('meta[property="og:description"]')?.setAttribute('content', pageDescription);
+  document.querySelector('meta[name="twitter:title"]')?.setAttribute('content', pageTitle);
+  document.querySelector('meta[name="twitter:description"]')?.setAttribute('content', pageDescription);
 
   document.querySelectorAll('[data-i18n]').forEach(el => {
     const key = el.getAttribute('data-i18n');
-    const val = i18n[lang][key];
+    const val = i18n[currentLang][key];
     if (!val) return;
     el.hasAttribute('data-html') ? (el.innerHTML = val) : (el.textContent = val);
   });
 
   document.querySelectorAll('[data-i18n-ph]').forEach(el => {
     const key = el.getAttribute('data-i18n-ph');
-    const val = i18n[lang][key];
+    const val = i18n[currentLang][key];
     if (val) el.placeholder = val;
   });
 
-  langToggleBtn.textContent = lang === 'es' ? 'EN' : 'ES';
-  langToggleBtn.setAttribute('aria-label', lang === 'es' ? 'Switch to English' : 'Cambiar a Español');
+  document.querySelectorAll('[data-i18n-aria]').forEach(el => {
+    const key = el.getAttribute('data-i18n-aria');
+    const val = i18n[currentLang][key];
+    if (val) el.setAttribute('aria-label', val);
+  });
 
-  // Reset typing effect with new language phrases
-  phrases     = i18n[lang]['typing-phrases'];
-  phraseIndex = 0;
-  charIndex   = 0;
-  isDeleting  = false;
+  document.querySelectorAll('[data-i18n-title]').forEach(el => {
+    const key = el.getAttribute('data-i18n-title');
+    const val = i18n[currentLang][key];
+    if (val) el.setAttribute('title', val);
+  });
+
+  langToggleBtn.textContent = currentLang === 'es' ? 'EN' : 'ES';
+  const languageLabelKey = currentLang === 'es' ? 'lang-switch-en-aria' : 'lang-switch-es-aria';
+  langToggleBtn.setAttribute('aria-label', i18n[currentLang][languageLabelKey]);
+  updateThemeToggleLabel();
+  updateProjectDialogContent();
 }
 
 langToggleBtn.addEventListener('click', () => {
@@ -192,34 +475,82 @@ langToggleBtn.addEventListener('click', () => {
 
 const navToggle = document.querySelector('.nav-toggle');
 const navLinks  = document.querySelector('.nav-links');
+const mobileNavQuery = window.matchMedia('(max-width: 1099px)');
+
+function updateMenuLabel(isOpen) {
+  const key = isOpen ? 'nav-menu-close-aria' : 'nav-menu-open-aria';
+  navToggle.setAttribute('data-i18n-aria', key);
+  navToggle.setAttribute('aria-label', i18n[currentLang][key]);
+}
+
+function setMenuState(isOpen, { focusFirst = false, returnFocus = false } = {}) {
+  const shouldOpen = mobileNavQuery.matches && isOpen;
+
+  navToggle.classList.toggle('is-open', shouldOpen);
+  navLinks.classList.toggle('is-open', shouldOpen);
+  navToggle.setAttribute('aria-expanded', String(shouldOpen));
+  updateMenuLabel(shouldOpen);
+
+  if (mobileNavQuery.matches) {
+    navLinks.toggleAttribute('inert', !shouldOpen);
+    navLinks.setAttribute('aria-hidden', String(!shouldOpen));
+  } else {
+    navLinks.removeAttribute('inert');
+    navLinks.removeAttribute('aria-hidden');
+  }
+
+  if (shouldOpen && focusFirst) {
+    navLinks.getBoundingClientRect();
+    navLinks.querySelector('a')?.focus();
+  } else if (returnFocus) {
+    navToggle.focus();
+  }
+}
 
 navToggle.addEventListener('click', () => {
-  const isOpen = navToggle.classList.toggle('is-open');
-  navLinks.classList.toggle('is-open');
-  navToggle.setAttribute('aria-expanded', String(isOpen));
+  const isOpen = navToggle.getAttribute('aria-expanded') === 'true';
+  setMenuState(!isOpen, { focusFirst: !isOpen });
+});
+
+navToggle.addEventListener('keyup', event => {
+  const isActivationKey = event.key === 'Enter' || event.key === ' ';
+  if (isActivationKey && navToggle.getAttribute('aria-expanded') === 'true') {
+    navLinks.querySelector('a')?.focus();
+  }
+});
+
+navToggle.addEventListener('keydown', event => {
+  const isOpen = navToggle.getAttribute('aria-expanded') === 'true';
+  if (event.key === 'Tab' && !event.shiftKey && isOpen) {
+    event.preventDefault();
+    navLinks.querySelector('a')?.focus();
+  }
 });
 
 navLinks.querySelectorAll('a').forEach(link => {
   link.addEventListener('click', () => {
-    navToggle.classList.remove('is-open');
-    navLinks.classList.remove('is-open');
-    navToggle.setAttribute('aria-expanded', 'false');
+    setMenuState(false);
   });
 });
 
-// Cerrar el menú al redimensionar a desktop
-window.addEventListener('resize', () => {
-  if (window.innerWidth > 768) {
-    navToggle.classList.remove('is-open');
-    navLinks.classList.remove('is-open');
-    navToggle.setAttribute('aria-expanded', 'false');
+document.addEventListener('keydown', event => {
+  if (event.key === 'Escape' && navToggle.getAttribute('aria-expanded') === 'true') {
+    event.preventDefault();
+    setMenuState(false, { returnFocus: true });
   }
-}, { passive: true });
+});
+
+mobileNavQuery.addEventListener('change', event => {
+  const returnFocus = event.matches && navLinks.contains(document.activeElement);
+  setMenuState(false, { returnFocus });
+});
+
+setMenuState(false);
 
 
 // ── 2. HEADER SCROLL EFFECT ────────────────────────────────────────────────
 
-const header = document.querySelector('header');
+const header = document.querySelector('.site-header');
 
 window.addEventListener('scroll', () => {
   header.classList.toggle('header--scrolled', window.scrollY > 50);
@@ -246,53 +577,59 @@ sections.forEach(s => spyObserver.observe(s));
 // ── 4. FADE-IN ON SCROLL ───────────────────────────────────────────────────
 
 const fadeTargets = document.querySelectorAll(
-  '.habilidad-item, .proyecto-card, .sobre-mi-texto, .seccion-titulo, .contacto-link, .timeline-item'
+  '[data-reveal]'
 );
 
-const fadeObserver = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if (!entry.isIntersecting) return;
-    entry.target.classList.add('visible');
-    fadeObserver.unobserve(entry.target);
+if (prefersReducedMotion) {
+  fadeTargets.forEach(el => el.classList.add('visible'));
+} else {
+  const fadeObserver = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) return;
+      entry.target.classList.add('visible');
+      fadeObserver.unobserve(entry.target);
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -6% 0px' });
+
+  fadeTargets.forEach(el => {
+    el.classList.add('fade-in');
+    fadeObserver.observe(el);
   });
-}, { threshold: 0.15 });
-
-fadeTargets.forEach(el => {
-  el.classList.add('fade-in');
-  fadeObserver.observe(el);
-});
+}
 
 
-// ── 5. TYPING EFFECT ───────────────────────────────────────────────────────
+// ── 5. ONE-TIME TERMINAL TYPING ────────────────────────────────────────────
 
-let phrases     = i18n[currentLang]['typing-phrases'];
-const typingTarget = document.querySelector('.hero-titulo');
-let phraseIndex = 0;
-let charIndex   = 0;
-let isDeleting  = false;
+const typingTarget = document.querySelector('.studio-terminal-typing');
+let typingTimer;
+let hasTypedTerminal = false;
 
-function type() {
-  const current = phrases[phraseIndex];
+function startTerminalTyping() {
+  const text = i18n[currentLang]['hero-terminal-line'];
+  let charIndex = 1;
 
-  typingTarget.textContent = isDeleting
-    ? current.slice(0, charIndex - 1)
-    : current.slice(0, charIndex + 1);
+  if (hasTypedTerminal) return;
 
-  if (isDeleting) charIndex--;
-  else charIndex++;
+  hasTypedTerminal = true;
+  clearTimeout(typingTimer);
 
-  let delay = isDeleting ? 45 : 75;
-
-  if (!isDeleting && charIndex === current.length) {
-    delay = 2200;
-    isDeleting = true;
-  } else if (isDeleting && charIndex === 0) {
-    isDeleting = false;
-    phraseIndex = (phraseIndex + 1) % phrases.length;
-    delay = 400;
+  if (prefersReducedMotion) {
+    typingTarget.textContent = text;
+    return;
   }
 
-  setTimeout(type, delay);
+  typingTarget.textContent = text.slice(0, charIndex);
+
+  function typeNextCharacter() {
+    charIndex += 1;
+    typingTarget.textContent = text.slice(0, charIndex);
+
+    if (charIndex < text.length) {
+      typingTimer = window.setTimeout(typeNextCharacter, 48);
+    }
+  }
+
+  typingTimer = window.setTimeout(typeNextCharacter, 180);
 }
 
 
@@ -305,11 +642,243 @@ window.addEventListener('scroll', () => {
 }, { passive: true });
 
 btnTop.addEventListener('click', () => {
-  window.scrollTo({ top: 0, behavior: 'smooth' });
+  window.scrollTo({ top: 0, behavior: prefersReducedMotion ? 'auto' : 'smooth' });
 });
 
 
-// ── 7. CONTACT FORM ────────────────────────────────────────────────────────
+// ── 7. PROJECT CASE STUDY DIALOG ───────────────────────────────────────────
+
+const projectCaseStudies = [
+  {
+    id: 'familymovie',
+    name: 'FamilyMovie',
+    roleKey: 'family-role',
+    descriptionKey: 'family-case-desc',
+    stack: ['Python', 'FastAPI', 'HTTPX', 'HTML', 'CSS', 'JavaScript', 'pytest'],
+    featureKeys: [
+      'family-feature-emby',
+      'family-feature-posters',
+      'family-feature-interface',
+      'family-feature-tests',
+    ],
+  },
+  {
+    id: 'cheatsheet',
+    name: 'Cheat Sheet — Master Python 2026',
+    roleKey: 'cheatsheet-role',
+    descriptionKey: 'cheatsheet-case-desc',
+    stack: ['Python', 'FastAPI', 'Jinja2', 'Tailwind CSS', 'JavaScript'],
+    featureKeys: [
+      'cheatsheet-feature-exercises',
+      'cheatsheet-feature-search',
+      'cheatsheet-feature-favorites',
+      'cheatsheet-feature-language',
+    ],
+  },
+  {
+    id: 'nodedrive',
+    name: 'NodeDrive UI Lab',
+    roleKey: 'nodedrive-role',
+    descriptionKey: 'nodedrive-case-desc',
+    stack: ['FastAPI', 'Jinja2', 'HTTPX', 'Tailwind CSS', 'JavaScript'],
+    featureKeys: [
+      'nodedrive-feature-seafile',
+      'nodedrive-feature-responsive',
+      'nodedrive-feature-language',
+      'nodedrive-feature-theme',
+    ],
+  },
+];
+
+const projectDialog = document.querySelector('#project-case-dialog');
+const projectDialogPanel = projectDialog.querySelector('[data-project-dialog-panel]');
+const projectDialogBody = projectDialog.querySelector('.project-dialog-body');
+const projectDialogTitle = projectDialog.querySelector('#project-dialog-title');
+const projectDialogRole = projectDialog.querySelector('#project-dialog-role');
+const projectDialogDescription = projectDialog.querySelector('#project-dialog-description');
+const projectDialogIndex = projectDialog.querySelector('#project-dialog-index');
+const projectDialogFeatures = projectDialog.querySelector('#project-dialog-features');
+const projectDialogStack = projectDialog.querySelector('#project-dialog-stack');
+const projectDialogPosition = projectDialog.querySelector('[data-project-dialog-position]');
+const projectDialogCloseBtn = projectDialog.querySelector('[data-project-dialog-close]');
+const projectDialogPreviousBtn = projectDialog.querySelector('[data-project-dialog-previous]');
+const projectDialogNextBtn = projectDialog.querySelector('[data-project-dialog-next]');
+const projectCaseTriggers = document.querySelectorAll('[data-project-trigger]');
+const projectCards = document.querySelectorAll('[data-project-card]');
+
+let activeProjectIndex = -1;
+let projectDialogTrigger = null;
+let projectDialogCloseTimer = null;
+
+function replaceProjectDialogList(container, items) {
+  const fragment = document.createDocumentFragment();
+
+  items.forEach(item => {
+    const listItem = document.createElement('li');
+    listItem.textContent = item;
+    fragment.append(listItem);
+  });
+
+  container.replaceChildren(fragment);
+}
+
+function updateProjectDialogContent() {
+  if (activeProjectIndex < 0) return;
+
+  const project = projectCaseStudies[activeProjectIndex];
+  const currentPosition = String(activeProjectIndex + 1).padStart(2, '0');
+  const totalProjects = String(projectCaseStudies.length).padStart(2, '0');
+
+  projectDialogIndex.textContent = `${currentPosition} / CASE STUDY`;
+  projectDialogTitle.textContent = project.name;
+  projectDialogRole.textContent = i18n[currentLang][project.roleKey];
+  projectDialogDescription.textContent = i18n[currentLang][project.descriptionKey];
+  projectDialogPosition.textContent = `${currentPosition} / ${totalProjects}`;
+
+  replaceProjectDialogList(
+    projectDialogFeatures,
+    project.featureKeys.map(key => i18n[currentLang][key]),
+  );
+  replaceProjectDialogList(projectDialogStack, project.stack);
+}
+
+function openProjectDialog(projectId, trigger) {
+  const projectIndex = projectCaseStudies.findIndex(project => project.id === projectId);
+  if (projectIndex < 0) return;
+
+  window.clearTimeout(projectDialogCloseTimer);
+  projectDialogCloseTimer = null;
+  activeProjectIndex = projectIndex;
+  projectDialogTrigger = trigger;
+  updateProjectDialogContent();
+  projectDialogBody.scrollTop = 0;
+  projectDialog.classList.remove('is-closing');
+
+  if (!projectDialog.open) {
+    const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
+    document.body.style.setProperty('--dialog-scrollbar-compensation', `${scrollbarWidth}px`);
+    document.body.classList.add('project-dialog-open');
+    projectDialog.showModal();
+  }
+
+  window.requestAnimationFrame(() => {
+    projectDialogCloseBtn.focus({ preventScroll: true });
+  });
+}
+
+function finishProjectDialogClose() {
+  projectDialogCloseTimer = null;
+  projectDialog.classList.remove('is-closing');
+  if (projectDialog.open) projectDialog.close();
+}
+
+function closeProjectDialog() {
+  if (!projectDialog.open || projectDialog.classList.contains('is-closing')) return;
+
+  window.clearTimeout(projectDialogCloseTimer);
+  projectDialogCloseTimer = null;
+  projectDialog.classList.add('is-closing');
+
+  if (prefersReducedMotion) {
+    finishProjectDialogClose();
+    return;
+  }
+
+  projectDialogCloseTimer = window.setTimeout(finishProjectDialogClose, 170);
+}
+
+function showAdjacentProject(direction) {
+  activeProjectIndex = (
+    activeProjectIndex + direction + projectCaseStudies.length
+  ) % projectCaseStudies.length;
+
+  updateProjectDialogContent();
+  projectDialogBody.scrollTop = 0;
+}
+
+function getProjectDialogFocusableElements() {
+  return [...projectDialog.querySelectorAll(
+    'button:not([disabled]), a[href], input:not([disabled]), textarea:not([disabled]), select:not([disabled]), [tabindex]:not([tabindex="-1"])',
+  )].filter(element => !element.hasAttribute('hidden'));
+}
+
+projectCaseTriggers.forEach(trigger => {
+  trigger.addEventListener('click', event => {
+    event.stopPropagation();
+    openProjectDialog(trigger.dataset.projectTrigger, trigger);
+  });
+});
+
+projectCards.forEach(card => {
+  card.addEventListener('click', event => {
+    if (event.target.closest('button, a, input, textarea, select')) return;
+
+    const trigger = card.querySelector('[data-project-trigger]');
+    openProjectDialog(card.dataset.projectCard, trigger);
+  });
+});
+
+projectDialogCloseBtn.addEventListener('click', closeProjectDialog);
+projectDialogPreviousBtn.addEventListener('click', () => showAdjacentProject(-1));
+projectDialogNextBtn.addEventListener('click', () => showAdjacentProject(1));
+
+projectDialog.addEventListener('click', event => {
+  if (event.target === projectDialog && !projectDialogPanel.contains(event.target)) {
+    closeProjectDialog();
+  }
+});
+
+projectDialog.addEventListener('cancel', event => {
+  event.preventDefault();
+  closeProjectDialog();
+});
+
+projectDialog.addEventListener('keydown', event => {
+  if (event.key !== 'Tab') return;
+
+  const focusableElements = getProjectDialogFocusableElements();
+  const firstFocusable = focusableElements[0];
+  const lastFocusable = focusableElements.at(-1);
+
+  if (!firstFocusable || !lastFocusable) {
+    event.preventDefault();
+    return;
+  }
+
+  if (event.shiftKey && document.activeElement === firstFocusable) {
+    event.preventDefault();
+    lastFocusable.focus();
+  } else if (!event.shiftKey && document.activeElement === lastFocusable) {
+    event.preventDefault();
+    firstFocusable.focus();
+  }
+});
+
+projectDialog.addEventListener('focusout', () => {
+  window.requestAnimationFrame(() => {
+    if (projectDialog.open && !projectDialog.contains(document.activeElement)) {
+      projectDialogCloseBtn.focus({ preventScroll: true });
+    }
+  });
+});
+
+projectDialog.addEventListener('close', () => {
+  window.clearTimeout(projectDialogCloseTimer);
+  projectDialogCloseTimer = null;
+  projectDialog.classList.remove('is-closing');
+  document.body.classList.remove('project-dialog-open');
+  document.body.style.removeProperty('--dialog-scrollbar-compensation');
+
+  const trigger = projectDialogTrigger;
+  projectDialogTrigger = null;
+
+  window.requestAnimationFrame(() => {
+    trigger?.focus({ preventScroll: true });
+  });
+});
+
+
+// ── 8. CONTACT FORM ────────────────────────────────────────────────────────
 
 const contactForm = document.querySelector('.contacto-form');
 
@@ -317,9 +886,12 @@ if (contactForm) {
   contactForm.addEventListener('submit', async (e) => {
     e.preventDefault();
     const submitBtn = contactForm.querySelector('button[type="submit"]');
+    const formStatus = contactForm.querySelector('.form-status');
 
-    submitBtn.textContent = currentLang === 'es' ? 'Enviando...' : 'Sending...';
+    submitBtn.textContent = i18n[currentLang]['contact-sending'];
     submitBtn.disabled = true;
+    contactForm.setAttribute('aria-busy', 'true');
+    formStatus.textContent = i18n[currentLang]['contact-sending'];
 
     try {
       const res = await fetch(contactForm.action, {
@@ -329,17 +901,17 @@ if (contactForm) {
       });
 
       if (res.ok) {
-        const msg = currentLang === 'es'
-          ? '✓ Mensaje enviado. Te respondo pronto.'
-          : "✓ Message sent. I'll get back to you soon.";
-        contactForm.innerHTML = `<p class="form-exito">${msg}</p>`;
+        contactForm.reset();
+        formStatus.textContent = i18n[currentLang]['contact-success'];
       } else {
-        submitBtn.textContent = currentLang === 'es' ? 'Error — intenta de nuevo' : 'Error — try again';
-        submitBtn.disabled = false;
+        formStatus.textContent = i18n[currentLang]['contact-error'];
       }
     } catch {
-      submitBtn.textContent = currentLang === 'es' ? 'Error — intenta de nuevo' : 'Error — try again';
+      formStatus.textContent = i18n[currentLang]['contact-error'];
+    } finally {
+      submitBtn.textContent = i18n[currentLang]['contact-btn'];
       submitBtn.disabled = false;
+      contactForm.removeAttribute('aria-busy');
     }
   });
 }
@@ -348,4 +920,4 @@ if (contactForm) {
 // ── INIT ───────────────────────────────────────────────────────────────────
 
 setLanguage(currentLang);
-type();
+startTerminalTyping();

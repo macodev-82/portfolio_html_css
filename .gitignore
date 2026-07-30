@@ -10,3 +10,36 @@ Thumbs.db
 
 # Logs
 *.log
+
+# Local environment and secrets
+.env
+.env.*
+!.env.example
+
+# Certificates and private keys
+*.pem
+*.key
+*.crt
+*.p12
+*.pfx
+
+# Local backups
+*.bak
+*.backup
+*.orig
+*~
+
+# Agent instructions and local AI configuration
+/AGENTS.md
+/.claude/
+
+# Internal portfolio documentation
+/docs/contexto_portfolio.md
+/docs/decisiones_diseno.md
+/docs/direccion_visual_landing_portfolio.md
+/docs/estado_actual.md
+/docs/evidencia_proyectos_locales.md
+/docs/guia_maestra_portfolio.md
+/docs/historial_trabajo.md
+/docs/inventario_contenido_real.md
+/docs/wireframe_landing_portfolio.md
