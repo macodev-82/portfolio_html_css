@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title data-i18n="meta.title">Brasa Norte — Demo comercial ficticia de restaurante de brasa</title>
+  <meta name="description" content="Brasa Norte es una demo comercial ficticia de restaurante de cocina al fuego, construida con HTML, CSS y JavaScript modular, sin frameworks.">
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="canonical" href="https://maahcodev.dev/demos/brasa-norte/">
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Brasa Norte — Demo ficticia">
+  <meta property="og:url" content="https://maahcodev.dev/demos/brasa-norte/">
+  <meta property="og:title" content="Brasa Norte — Demo comercial ficticia de restaurante de brasa">
+  <meta property="og:description" content="Demo comercial ficticia de restaurante de cocina al fuego, construida con HTML, CSS y JavaScript modular, sin frameworks.">
+
+  <link rel="stylesheet" href="css/brasa-norte.css">
+</head>
+<body>
+  <a class="skip-link" href="#contenido-principal" data-i18n="skip.link">Saltar al contenido principal</a>
+
+  <header id="cabecera" class="site-header">
+    <div class="site-header__inner">
+      <a class="site-header__brand" href="#hero">Brasa Norte</a>
+
+      <button
+        type="button"
+        id="nav-toggle"
+        class="nav-toggle"
+        aria-expanded="false"
+        aria-controls="nav-principal"
+        data-i18n-aria-label="nav.toggle_abrir"
+        aria-label="Abrir menú de navegación"
+      >
+        <span class="nav-toggle__bar" aria-hidden="true"></span>
+        <span class="nav-toggle__bar" aria-hidden="true"></span>
+        <span class="nav-toggle__bar" aria-hidden="true"></span>
+      </button>
+
+      <nav id="nav-principal" class="site-nav" aria-label="Navegación principal">
+        <ul class="site-nav__list">
+          <li><a href="#historia" data-i18n="nav.historia">Historia</a></li>
+          <li><a href="#platos-destacados" data-i18n="nav.platos">Platos destacados</a></li>
+          <li><a href="#experiencia-fuego" data-i18n="nav.fuego">El fuego</a></li>
+          <li><a href="#menu" data-i18n="nav.menu">Menú</a></li>
+          <li><a href="#reserva" data-i18n="nav.reserva">Reserva</a></li>
+          <li><a href="#horarios-ubicacion" data-i18n="nav.horarios">Horarios y ubicación</a></li>
+          <li><a href="#faq" data-i18n="nav.faq">Preguntas frecuentes</a></li>
+        </ul>
+
+        <div class="lang-switch" role="group" data-i18n-aria-label="lang.selector_aria" aria-label="Seleccionar idioma">
+          <button type="button" data-lang-option="es" aria-pressed="true" data-i18n="lang.es_label">ES</button>
+          <button type="button" data-lang-option="en" aria-pressed="false" data-i18n="lang.en_label">EN</button>
+        </div>
+
+        <a class="button button--primary site-nav__cta" href="#reserva" data-i18n="nav.cta_reservar">Reservar mesa</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="contenido-principal">
+
+    <section id="hero" class="hero">
+      <p class="demo-badge" data-i18n="hero.badge">Demo comercial ficticia — Brasa Norte no es un negocio real.</p>
+
+      <h1 class="hero__title">Brasa Norte</h1>
+      <p class="hero__subtitle" data-i18n="hero.subtitle">Una mesa nocturna donde el fuego escribe el menú y la brasa lleva la voz cantante.</p>
+      <a class="button button--primary" href="#reserva" data-i18n="hero.cta">Reservar mesa</a>
+
+      <div class="media-placeholder media-placeholder--hero" data-placeholder="hero" aria-hidden="true">
+        <span data-i18n="hero.placeholder_texto">Placeholder interno — imagen de hero pendiente</span>
+      </div>
+    </section>
+
+    <section id="historia" class="section">
+      <h2 data-i18n="historia.heading">Una cocina que nació del fuego, no del gas</h2>
+      <div class="section__layout">
+        <div class="section__text">
+          <p data-i18n="historia.p1">Brasa Norte imagina una cocina construida alrededor de un único elemento: el fuego vivo. Sin gas, sin inducción, sin atajos: cada plato pasa por brasa, rescoldo o humo antes de llegar a la mesa.</p>
+          <p data-i18n="historia.p2">Un pequeño equipo de cocineros trabaja cada noche alrededor de una parrilla abierta, visible desde el comedor, donde el ritmo del servicio lo marca el propio fuego.</p>
+        </div>
+        <div class="media-placeholder" data-placeholder="historia" aria-hidden="true">
+          <span data-i18n="historia.placeholder_texto">Placeholder interno — imagen de historia pendiente</span>
+        </div>
+      </div>
+    </section>
+
+    <section id="platos-destacados" class="section">
+      <h2 data-i18n="destacados.heading">Platos destacados</h2>
+      <p data-i18n="destacados.intro">Una selección breve de lo que mejor representa la cocina de Brasa Norte.</p>
+
+      <ul class="dish-grid">
+        <li class="dish-card">
+          <div class="media-placeholder media-placeholder--dish" data-placeholder="plato-costilla" aria-hidden="true">
+            <span data-i18n="destacados.placeholder_texto">Placeholder interno — imagen de plato pendiente</span>
+          </div>
+          <h3 data-i18n="plato.costilla.nombre">Costilla ahumada doce horas</h3>
+          <p data-i18n="plato.costilla.descripcion">Costilla cocinada lentamente durante doce horas sobre madera de roble.</p>
+        </li>
+        <li class="dish-card">
+          <div class="media-placeholder media-placeholder--dish" data-placeholder="plato-pulpo" aria-hidden="true">
+            <span data-i18n="destacados.placeholder_texto">Placeholder interno — imagen de plato pendiente</span>
+          </div>
+          <h3 data-i18n="plato.pulpo.nombre">Pulpo a la brasa con puré de raíces</h3>
+          <p data-i18n="plato.pulpo.descripcion">Pulpo marcado a fuego vivo sobre un puré suave de raíces de temporada.</p>
+        </li>
+        <li class="dish-card">
+          <div class="media-placeholder media-placeholder--dish" data-placeholder="plato-chocolate" aria-hidden="true">
+            <span data-i18n="destacados.placeholder_texto">Placeholder interno — imagen de plato pendiente</span>
+          </div>
+          <h3 data-i18n="plato.chocolate.nombre">Chocolate oscuro con sal de brasa</h3>
+          <p data-i18n="plato.chocolate.descripcion">Chocolate oscuro de intensidad alta, terminado con sal ahumada sobre brasa.</p>
+        </li>
+      </ul>
+    </section>
+
+    <section id="experiencia-fuego" class="section section--fuego">
+      <h2 data-i18n="fuego.heading">El fuego como técnica y como experiencia</h2>
+      <p data-i18n="fuego.p1">La parrilla abierta es el centro visible del restaurante. En una fase posterior de esta demo, esta sección incorporará una pequeña experiencia interactiva alrededor del fuego.</p>
+      <div class="media-placeholder media-placeholder--fuego" data-placeholder="experiencia-fuego" aria-hidden="true">
+        <span data-i18n="fuego.placeholder_texto">Placeholder interno — experiencia del fuego pendiente</span>
+      </div>
+    </section>
+
+    <section id="menu" class="section">
+      <h2 data-i18n="menu.heading">Menú</h2>
+      <p data-i18n="menu.intro">Carta organizada por categorías. El filtrado interactivo se incorporará en una fase posterior.</p>
+
+      <div class="menu-categoria">
+        <h3 id="menu-entrantes" data-i18n="menu.categoria.entrantes">Entrantes de brasa</h3>
+        <ul class="menu-list" aria-labelledby="menu-entrantes">
+          <li class="menu-item">
+            <span class="menu-item__nombre" data-i18n="plato.pan.nombre">Pan de brasa con mantequilla ahumada</span>
+            <span class="menu-item__precio">6&nbsp;€</span>
+            <p class="menu-item__descripcion" data-i18n="plato.pan.descripcion">Pan de masa madre tostado al rescoldo, servido con mantequilla ahumada en sarmientos.</p>
+          </li>
+          <li class="menu-item">
+            <span class="menu-item__nombre" data-i18n="plato.pulpo.nombre">Pulpo a la brasa con puré de raíces</span>
+            <span class="menu-item__precio">14&nbsp;€</span>
+            <p class="menu-item__descripcion" data-i18n="plato.pulpo.descripcion">Pulpo marcado a fuego vivo sobre un puré suave de raíces de temporada.</p>
+          </li>
+        </ul>
+      </div>
+
+      <div class="menu-categoria">
+        <h3 id="menu-fuego-principal" data-i18n="menu.categoria.fuego_principal">Fuego principal</h3>
+        <ul class="menu-list" aria-labelledby="menu-fuego-principal">
+          <li class="menu-item">
+            <span class="menu-item__nombre" data-i18n="plato.costilla.nombre">Costilla ahumada doce horas</span>
+            <span class="menu-item__precio">22&nbsp;€</span>
+            <p class="menu-item__descripcion" data-i18n="plato.costilla.descripcion">Costilla cocinada lentamente durante doce horas sobre madera de roble.</p>
+          </li>
+          <li class="menu-item">
+            <span class="menu-item__nombre" data-i18n="plato.trucha.nombre">Trucha a la brasa con hierbas del norte</span>
+            <span class="menu-item__precio">19&nbsp;€</span>
+            <p class="menu-item__descripcion" data-i18n="plato.trucha.descripcion">Trucha entera asada a la brasa, aromatizada con hierbas frescas de temporada.</p>
+          </li>
+        </ul>
+      </div>
+
+      <div class="menu-categoria">
+        <h3 id="menu-guarniciones" data-i18n="menu.categoria.guarniciones">Guarniciones y raíces</h3>
+        <ul class="menu-list" aria-labelledby="menu-guarniciones">
+          <li class="menu-item">
+            <span class="menu-item__nombre" data-i18n="plato.raices.nombre">Raíces al rescoldo</span>
+            <span class="menu-item__precio">7&nbsp;€</span>
+            <p class="menu-item__descripcion" data-i18n="plato.raices.descripcion">Selección de raíces de temporada cocinadas enterradas en el rescoldo.</p>
+          </li>
+          <li class="menu-item">
+            <span class="menu-item__nombre" data-i18n="plato.setas.nombre">Setas silvestres a la brasa</span>
+            <span class="menu-item__precio">9&nbsp;€</span>
+            <p class="menu-item__descripcion" data-i18n="plato.setas.descripcion">Setas de temporada asadas enteras, terminadas con aceite de hierbas.</p>
+          </li>
+        </ul>
+      </div>
+
+      <div class="menu-categoria">
+        <h3 id="menu-dulce-final" data-i18n="menu.categoria.dulce_final">Dulce final</h3>
+        <ul class="menu-list" aria-labelledby="menu-dulce-final">
+          <li class="menu-item">
+            <span class="menu-item__nombre" data-i18n="plato.tarta.nombre">Tarta de manzana ahumada</span>
+            <span class="menu-item__precio">8&nbsp;€</span>
+            <p class="menu-item__descripcion" data-i18n="plato.tarta.descripcion">Tarta de manzana de temporada con un toque de ahumado sutil.</p>
+          </li>
+          <li class="menu-item">
+            <span class="menu-item__nombre" data-i18n="plato.chocolate.nombre">Chocolate oscuro con sal de brasa</span>
+            <span class="menu-item__precio">8&nbsp;€</span>
+            <p class="menu-item__descripcion" data-i18n="plato.chocolate.descripcion">Chocolate oscuro de intensidad alta, terminado con sal ahumada sobre brasa.</p>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="reserva" class="section">
+      <h2 data-i18n="reserva.heading">Reserva</h2>
+      <p data-i18n="reserva.intro">Completa el formulario para simular una reserva.</p>
+      <p class="form-disclaimer" data-i18n="reserva.disclaimer">Esta reserva es una simulación local. Ningún dato se envía a ningún servidor real.</p>
+
+      <form id="formulario-reserva" class="reservation-form" novalidate>
+        <div class="form-field">
+          <label for="reserva-nombre" data-i18n="reserva.label_nombre">Nombre completo</label>
+          <input type="text" id="reserva-nombre" name="nombre" autocomplete="name" required>
+        </div>
+
+        <div class="form-field">
+          <label for="reserva-email" data-i18n="reserva.label_email">Correo de contacto</label>
+          <input type="email" id="reserva-email" name="email" autocomplete="email" required>
+        </div>
+
+        <div class="form-field">
+          <label for="reserva-personas" data-i18n="reserva.label_personas">Número de personas</label>
+          <input type="number" id="reserva-personas" name="personas" min="1" max="12" step="1" required>
+        </div>
+
+        <div class="form-field">
+          <label for="reserva-fecha" data-i18n="reserva.label_fecha">Fecha</label>
+          <input type="date" id="reserva-fecha" name="fecha" required>
+        </div>
+
+        <div class="form-field">
+          <label for="reserva-hora" data-i18n="reserva.label_hora">Hora</label>
+          <input type="time" id="reserva-hora" name="hora" required>
+        </div>
+
+        <div class="form-field form-field--full">
+          <label for="reserva-comentarios" data-i18n="reserva.label_comentarios">Comentarios (opcional)</label>
+          <textarea
+            id="reserva-comentarios"
+            name="comentarios"
+            rows="3"
+            data-i18n-placeholder="reserva.placeholder_comentarios"
+            placeholder="Alergias, ocasión especial, preferencias de mesa…"
+          ></textarea>
+        </div>
+
+        <button type="submit" class="button button--primary" data-i18n="reserva.submit">Solicitar reserva</button>
+      </form>
+    </section>
+
+    <section id="horarios-ubicacion" class="section">
+      <h2 data-i18n="horarios.heading">Horarios y ubicación</h2>
+
+      <div class="section__layout">
+        <table class="schedule-table">
+          <caption class="sr-only" data-i18n="horarios.heading">Horarios y ubicación</caption>
+          <tbody>
+            <tr><th scope="row" data-i18n="horarios.dia_lunes">Lunes</th><td data-i18n="horarios.estado_cerrado">Cerrado</td></tr>
+            <tr><th scope="row" data-i18n="horarios.dia_martes">Martes</th><td>18:00–23:00</td></tr>
+            <tr><th scope="row" data-i18n="horarios.dia_miercoles">Miércoles</th><td>18:00–23:00</td></tr>
+            <tr><th scope="row" data-i18n="horarios.dia_jueves">Jueves</th><td>18:00–23:30</td></tr>
+            <tr><th scope="row" data-i18n="horarios.dia_viernes">Viernes</th><td>18:00–00:00</td></tr>
+            <tr><th scope="row" data-i18n="horarios.dia_sabado">Sábado</th><td>13:00–00:00</td></tr>
+            <tr><th scope="row" data-i18n="horarios.dia_domingo">Domingo</th><td>13:00–17:00</td></tr>
+          </tbody>
+        </table>
+
+        <div class="location-info">
+          <h3 data-i18n="horarios.direccion_heading">Dirección</h3>
+          <p data-i18n="horarios.direccion_texto">Calle del Rescoldo 14, Distrito Norte (dirección ficticia)</p>
+          <p>
+            <span data-i18n="horarios.telefono_label">Teléfono</span>:
+            <a href="tel:+34900000000">+34 900 000 000</a>
+          </p>
+          <p>
+            <span data-i18n="horarios.email_label">Correo</span>:
+            <a href="mailto:reservas@brasanorte-demo.example">reservas@brasanorte-demo.example</a>
+          </p>
+
+          <div class="media-placeholder media-placeholder--mapa" data-placeholder="mapa" aria-hidden="true">
+            <span data-i18n="horarios.mapa_placeholder_texto">Placeholder interno — mapa de ubicación pendiente</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="faq" class="section">
+      <h2 data-i18n="faq.heading">Preguntas frecuentes</h2>
+
+      <div class="faq-list">
+        <details class="faq-item">
+          <summary data-i18n="faq.reserva-antelacion.pregunta">¿Necesito reservar con antelación?</summary>
+          <p data-i18n="faq.reserva-antelacion.respuesta">Recomendamos reservar con al menos 48 horas de antelación, especialmente los fines de semana.</p>
+        </details>
+        <details class="faq-item">
+          <summary data-i18n="faq.opciones-vegetarianas.pregunta">¿Tienen opciones vegetarianas?</summary>
+          <p data-i18n="faq.opciones-vegetarianas.respuesta">Sí, varias guarniciones y entrantes del menú son aptos para dietas vegetarianas.</p>
+        </details>
+        <details class="faq-item">
+          <summary data-i18n="faq.grupos-grandes.pregunta">¿Aceptan grupos grandes?</summary>
+          <p data-i18n="faq.grupos-grandes.respuesta">Aceptamos grupos de hasta doce personas escribiendo con antelación en el formulario de reserva.</p>
+        </details>
+        <details class="faq-item">
+          <summary data-i18n="faq.aparcamiento.pregunta">¿Hay aparcamiento cercano?</summary>
+          <p data-i18n="faq.aparcamiento.respuesta">Existe una zona de aparcamiento público a pocos minutos a pie del local.</p>
+        </details>
+        <details class="faq-item">
+          <summary data-i18n="faq.codigo-vestimenta.pregunta">¿Cuál es el código de vestimenta?</summary>
+          <p data-i18n="faq.codigo-vestimenta.respuesta">No exigimos código de vestimenta formal; buscamos una elegancia relajada.</p>
+        </details>
+      </div>
+    </section>
+
+  </main>
+
+  <div id="panel-detalle-plato" class="dish-panel" hidden aria-hidden="true">
+    <!-- Reservado para la Fase 2: panel/modal de detalle de plato. Vacío intencionalmente. -->
+  </div>
+
+  <div class="mobile-cta">
+    <a class="button button--primary" href="#reserva" data-i18n="mobilecta.reservar">Reservar mesa</a>
+  </div>
+
+  <footer id="pie-pagina" class="site-footer">
+    <div class="site-footer__inner">
+      <p class="site-footer__brand">Brasa Norte</p>
+      <p data-i18n="footer.brand_note">Brasa Norte es una demo comercial ficticia creada con fines de portafolio.</p>
+      <p class="form-disclaimer" data-i18n="footer.aviso_ficticio">Ningún dato de contacto, dirección o reserva mostrado aquí corresponde a un negocio real.</p>
+
+      <nav aria-label="Navegación del pie de página">
+        <h2 class="sr-only" data-i18n="footer.nav_heading">Explorar</h2>
+        <ul class="site-footer__nav">
+          <li><a href="#historia" data-i18n="nav.historia">Historia</a></li>
+          <li><a href="#menu" data-i18n="nav.menu">Menú</a></li>
+          <li><a href="#reserva" data-i18n="nav.reserva">Reserva</a></li>
+          <li><a href="#faq" data-i18n="nav.faq">Preguntas frecuentes</a></li>
+        </ul>
+      </nav>
+
+      <p class="site-footer__copyright">
+        © <span id="anio-actual">2026</span> <span data-i18n="footer.copyright_texto">Brasa Norte — Demo ficticia. Todos los derechos reservados (ficticios).</span>
+      </p>
+    </div>
+  </footer>
+
+  <script type="module" src="js/brasa-norte.js"></script>
+</body>
+</html>
