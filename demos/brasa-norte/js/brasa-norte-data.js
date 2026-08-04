@@ -5,11 +5,10 @@
  * Ningún nombre, descripción ni dato proviene de una base externa;
  * todo el contenido fue redactado específicamente para esta demo.
  *
- * Este módulo es de solo datos: no manipula el DOM ni depende de
- * ningún otro archivo. En la Fase 2 será importado por
- * brasa-norte.js para renderizar el menú filtrable y el panel de
- * detalle de plato. En la Fase 1 se deja preparado y documentado,
- * sin conectar todavía a la interfaz.
+ * Este módulo es de solo datos: no manipula el DOM. Desde la Fase 2,
+ * `categorias`, `platos` y `tecnicasFuego` son importados por
+ * brasa-norte.js para renderizar el menú filtrable, el panel de
+ * detalle de plato y la experiencia interactiva del fuego.
  */
 
 /**
@@ -31,6 +30,8 @@ export const categorias = [
 /**
  * Platos del menú. Cada plato pertenece a una única categoría (por id).
  * Los precios son ficticios y solo tienen fines demostrativos.
+ * `ingredientesEs`/`ingredientesEn` son listas breves e ilustrativas,
+ * pensadas para el panel de detalle de plato.
  * @typedef {Object} Plato
  * @property {string} id
  * @property {string} categoriaId
@@ -40,6 +41,8 @@ export const categorias = [
  * @property {string} descripcionEn
  * @property {number} precio
  * @property {string[]} alergenosFicticios
+ * @property {string[]} ingredientesEs
+ * @property {string[]} ingredientesEn
  */
 
 /** @type {Plato[]} */
@@ -53,6 +56,8 @@ export const platos = [
     descripcionEn: 'Sourdough bread toasted over embers, served with vine-shoot smoked butter.',
     precio: 6,
     alergenosFicticios: ['gluten', 'lácteos'],
+    ingredientesEs: ['Masa madre', 'Mantequilla ahumada', 'Sarmientos de vid', 'Sal marina'],
+    ingredientesEn: ['Sourdough', 'Smoked butter', 'Vine shoots', 'Sea salt'],
   },
   {
     id: 'pulpo-brasa-pure-raices',
@@ -63,6 +68,8 @@ export const platos = [
     descripcionEn: 'Octopus seared over live fire, set on a smooth seasonal root purée.',
     precio: 14,
     alergenosFicticios: ['moluscos'],
+    ingredientesEs: ['Pulpo', 'Patata', 'Chirivía', 'Aceite de oliva', 'Pimentón ahumado'],
+    ingredientesEn: ['Octopus', 'Potato', 'Parsnip', 'Olive oil', 'Smoked paprika'],
   },
   {
     id: 'costilla-ahumada-doce-horas',
@@ -73,6 +80,8 @@ export const platos = [
     descripcionEn: 'Rib slow-cooked for twelve hours over oak wood embers.',
     precio: 22,
     alergenosFicticios: [],
+    ingredientesEs: ['Costilla de cerdo', 'Madera de roble', 'Especias de brasa', 'Glaseado ligero'],
+    ingredientesEn: ['Pork rib', 'Oak wood', 'Ember spice rub', 'Light glaze'],
   },
   {
     id: 'trucha-brasa-hierbas-norte',
@@ -83,6 +92,8 @@ export const platos = [
     descripcionEn: 'Whole trout grilled over embers, finished with fresh seasonal herbs.',
     precio: 19,
     alergenosFicticios: ['pescado'],
+    ingredientesEs: ['Trucha entera', 'Hierbas frescas', 'Limón', 'Aceite de oliva'],
+    ingredientesEn: ['Whole trout', 'Fresh herbs', 'Lemon', 'Olive oil'],
   },
   {
     id: 'raices-rescoldo',
@@ -93,6 +104,8 @@ export const platos = [
     descripcionEn: 'A selection of seasonal roots cooked buried in the embers.',
     precio: 7,
     alergenosFicticios: [],
+    ingredientesEs: ['Zanahoria', 'Remolacha', 'Chirivía', 'Sal gruesa'],
+    ingredientesEn: ['Carrot', 'Beetroot', 'Parsnip', 'Coarse salt'],
   },
   {
     id: 'setas-silvestres-brasa',
@@ -103,6 +116,8 @@ export const platos = [
     descripcionEn: 'Whole seasonal mushrooms grilled over fire, finished with herb oil.',
     precio: 9,
     alergenosFicticios: [],
+    ingredientesEs: ['Setas de temporada', 'Ajo', 'Aceite de hierbas', 'Perejil'],
+    ingredientesEn: ['Seasonal mushrooms', 'Garlic', 'Herb oil', 'Parsley'],
   },
   {
     id: 'tarta-manzana-ahumada',
@@ -113,6 +128,8 @@ export const platos = [
     descripcionEn: 'Seasonal apple tart with a subtle smoked note.',
     precio: 8,
     alergenosFicticios: ['gluten', 'huevo'],
+    ingredientesEs: ['Manzana de temporada', 'Masa quebrada', 'Canela', 'Toque ahumado'],
+    ingredientesEn: ['Seasonal apple', 'Shortcrust pastry', 'Cinnamon', 'Smoked touch'],
   },
   {
     id: 'chocolate-oscuro-sal-brasa',
@@ -123,6 +140,8 @@ export const platos = [
     descripcionEn: 'High-intensity dark chocolate, finished with ember-smoked salt.',
     precio: 8,
     alergenosFicticios: ['lácteos'],
+    ingredientesEs: ['Chocolate oscuro 70%', 'Sal ahumada', 'Aceite de oliva'],
+    ingredientesEn: ['70% dark chocolate', 'Ember-smoked salt', 'Olive oil'],
   },
 ];
 
@@ -193,5 +212,59 @@ export const preguntasFrecuentes = [
     preguntaEn: 'What is the dress code?',
     respuestaEs: 'No exigimos código de vestimenta formal; buscamos una elegancia relajada.',
     respuestaEn: 'We do not require a formal dress code; we favor relaxed elegance.',
+  },
+];
+
+/**
+ * Técnicas de fuego ficticias mostradas en la experiencia interactiva
+ * de la sección "El fuego". El dato técnico (`datoEs`/`datoEn`) es
+ * ilustrativo y no corresponde a ninguna medición real.
+ * @typedef {Object} TecnicaFuego
+ * @property {string} id
+ * @property {string} nombreEs
+ * @property {string} nombreEn
+ * @property {string} descripcionEs
+ * @property {string} descripcionEn
+ * @property {string} datoEs
+ * @property {string} datoEn
+ */
+
+/** @type {TecnicaFuego[]} */
+export const tecnicasFuego = [
+  {
+    id: 'llama-directa',
+    nombreEs: 'Llama directa',
+    nombreEn: 'Direct flame',
+    descripcionEs: 'El alimento se cocina en contacto directo con la llama viva, buscando un dorado rápido y un ligero toque ahumado en el exterior.',
+    descripcionEn: 'Food is cooked in direct contact with the live flame, aiming for a quick sear and a light smoky note on the outside.',
+    datoEs: 'Dato ilustrativo: temperatura aproximada de trabajo, 280–320 °C.',
+    datoEn: 'Illustrative fact: approximate working temperature, 280–320 °C.',
+  },
+  {
+    id: 'brasa-lenta',
+    nombreEs: 'Brasa lenta',
+    nombreEn: 'Slow ember',
+    descripcionEs: 'Cocciones largas sobre brasa de intensidad moderada, pensadas para piezas grandes que necesitan horas para ablandarse.',
+    descripcionEn: 'Long cooks over moderate-intensity embers, designed for large cuts that need hours to become tender.',
+    datoEs: 'Dato ilustrativo: tiempos de cocción de referencia, entre 6 y 12 horas.',
+    datoEn: 'Illustrative fact: reference cooking times, between 6 and 12 hours.',
+  },
+  {
+    id: 'humo-madera',
+    nombreEs: 'Humo de madera',
+    nombreEn: 'Wood smoke',
+    descripcionEs: 'Maderas seleccionadas se queman a baja intensidad para envolver el alimento en humo aromático sin cocinarlo directamente.',
+    descripcionEn: 'Selected woods burn at low intensity to wrap the food in aromatic smoke without cooking it directly.',
+    datoEs: 'Dato ilustrativo: maderas de referencia, roble y sarmiento de vid.',
+    datoEn: 'Illustrative fact: reference woods, oak and vine shoot.',
+  },
+  {
+    id: 'calor-envolvente',
+    nombreEs: 'Calor envolvente',
+    nombreEn: 'Enveloping heat',
+    descripcionEs: 'El alimento se cocina enterrado en rescoldo o rodeado de calor indirecto, para una cocción uniforme desde todos los lados.',
+    descripcionEn: 'Food is cooked buried in embers or surrounded by indirect heat, for even cooking from every side.',
+    datoEs: 'Dato ilustrativo: técnica reservada principalmente a raíces y verduras enteras.',
+    datoEn: 'Illustrative fact: technique used mainly for roots and whole vegetables.',
   },
 ];

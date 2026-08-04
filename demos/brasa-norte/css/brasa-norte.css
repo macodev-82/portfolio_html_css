@@ -1,6 +1,6 @@
 /* =============================================================
    brasa-norte.css
-   Fundación visual de la demo "Brasa Norte" (Fase 1).
+   Fundación visual + interactividad de la demo "Brasa Norte".
    Mobile-first. Sin frameworks, sin fuentes CDN, sin imágenes externas.
    ============================================================= */
 
@@ -44,7 +44,7 @@
   --header-height: 4rem;
   --mobile-cta-height: 4.25rem;
 
-  /* Transiciones (deshabilitadas globalmente si prefers-reduced-motion, ver §12) */
+  /* Transiciones (deshabilitadas globalmente si prefers-reduced-motion, ver §20) */
   --transition-fast: 150ms ease;
   --transition-base: 250ms ease;
 }
@@ -117,6 +117,10 @@ body {
   padding-bottom: var(--mobile-cta-height);
 }
 
+body.no-scroll {
+  overflow: hidden;
+}
+
 h1,
 h2,
 h3 {
@@ -164,7 +168,8 @@ a:focus-visible,
 button:focus-visible,
 input:focus-visible,
 textarea:focus-visible,
-summary:focus-visible {
+summary:focus-visible,
+[tabindex]:focus-visible {
   outline: 3px solid var(--color-focus);
   outline-offset: 2px;
   border-radius: var(--radius-sm);
@@ -283,6 +288,11 @@ summary:focus-visible {
   font-size: 1.125rem;
 }
 
+.site-nav__list a[aria-current='location'] {
+  color: var(--color-accent-light);
+  font-weight: 700;
+}
+
 .lang-switch {
   display: flex;
   gap: var(--space-2);
@@ -329,6 +339,23 @@ summary:focus-visible {
   transform: scale(0.98);
 }
 
+.ver-detalle-btn {
+  align-self: flex-start;
+  margin-top: var(--space-2);
+  padding: var(--space-2) var(--space-4);
+  border: 1px solid var(--color-accent);
+  border-radius: var(--radius-md);
+  color: var(--color-accent-light);
+  font-size: 0.875rem;
+  font-weight: 600;
+  transition: background-color var(--transition-fast), color var(--transition-fast);
+}
+
+.ver-detalle-btn:hover {
+  background-color: var(--color-accent);
+  color: var(--color-bg);
+}
+
 /* -------------------------------------------------------------
    9. Hero
    ------------------------------------------------------------- */
@@ -360,7 +387,7 @@ summary:focus-visible {
 }
 
 /* -------------------------------------------------------------
-   10. Placeholders visuales (temporales, Fase 1)
+   10. Placeholders visuales (temporales)
    ------------------------------------------------------------- */
 .media-placeholder {
   width: 100%;
@@ -400,50 +427,147 @@ summary:focus-visible {
   border: 1px solid var(--color-border);
   border-radius: var(--radius-md);
   padding: var(--space-4);
+  display: flex;
+  flex-direction: column;
 }
 
 /* -------------------------------------------------------------
-   12. Experiencia del fuego
+   12. Experiencia del fuego (pestañas accesibles)
    ------------------------------------------------------------- */
 .section--fuego {
   background-color: var(--color-bg-alt);
 }
 
-/* -------------------------------------------------------------
-   13. Menú
-   ------------------------------------------------------------- */
-.menu-categoria {
+.fuego-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
   margin-top: var(--space-6);
 }
 
-.menu-list {
+.fuego-tab {
+  padding: var(--space-2) var(--space-4);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  font-size: 0.9375rem;
+  color: var(--color-text-muted);
+  transition: background-color var(--transition-fast), color var(--transition-fast), border-color var(--transition-fast);
+}
+
+.fuego-tab[aria-selected='true'] {
+  background-color: var(--color-accent-secondary);
+  border-color: var(--color-accent);
+  color: var(--color-text);
+  font-weight: 600;
+}
+
+.fuego-panel {
+  margin-top: var(--space-6);
+  padding: var(--space-5);
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+}
+
+.fuego-panel__nombre {
+  color: var(--color-accent-light);
+  margin-bottom: var(--space-2);
+}
+
+.fuego-panel__dato {
+  margin-top: var(--space-3);
+  font-size: 0.8125rem;
+  color: var(--color-accent-light);
+}
+
+/* -------------------------------------------------------------
+   13. Menú: filtros, conteo y tarjetas dinámicas
+   ------------------------------------------------------------- */
+.menu-filtros {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  margin-top: var(--space-6);
+}
+
+.filtro-btn {
+  padding: var(--space-2) var(--space-4);
+  border: 1px solid var(--color-border);
+  border-radius: 999px;
+  font-size: 0.875rem;
+  color: var(--color-text-muted);
+  transition: background-color var(--transition-fast), color var(--transition-fast), border-color var(--transition-fast);
+}
+
+.filtro-btn[aria-pressed='true'] {
+  background-color: var(--color-accent);
+  border-color: var(--color-accent);
+  color: var(--color-bg);
+  font-weight: 600;
+}
+
+.menu-conteo {
+  margin-top: var(--space-4);
+  font-size: 0.875rem;
+}
+
+.menu-grid {
+  display: grid;
+  gap: var(--space-4);
+  margin-top: var(--space-4);
+}
+
+.menu-card {
+  background-color: var(--color-bg-alt);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--space-4);
   display: flex;
   flex-direction: column;
-  gap: var(--space-4);
+  gap: var(--space-2);
 }
 
-.menu-item {
-  display: grid;
-  grid-template-columns: 1fr auto;
-  column-gap: var(--space-3);
-  border-bottom: 1px solid var(--color-border);
-  padding-bottom: var(--space-3);
+.menu-card__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: var(--space-3);
 }
 
-.menu-item__nombre {
+.menu-card__nombre {
   font-family: var(--font-display);
   font-weight: 600;
+  font-size: 1.0625rem;
+  color: var(--color-text);
 }
 
-.menu-item__precio {
+.menu-card__precio {
   color: var(--color-accent-light);
   font-weight: 600;
+  white-space: nowrap;
 }
 
-.menu-item__descripcion {
-  grid-column: 1 / -1;
+.menu-card__descripcion {
   font-size: 0.9375rem;
-  margin-top: var(--space-1);
+}
+
+.menu-card__meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  font-size: 0.75rem;
+}
+
+.menu-card__categoria,
+.menu-card__alergeno {
+  border: 1px solid var(--color-border);
+  border-radius: 999px;
+  padding: var(--space-1) var(--space-2);
+  color: var(--color-text-muted);
+}
+
+.menu-estado-vacio {
+  margin-top: var(--space-6);
 }
 
 /* -------------------------------------------------------------
@@ -479,8 +603,36 @@ summary:focus-visible {
   padding: var(--space-3);
 }
 
+.form-field input[aria-invalid='true'],
+.form-field textarea[aria-invalid='true'] {
+  border-color: var(--color-error);
+}
+
+.form-error {
+  color: var(--color-error);
+  font-size: 0.8125rem;
+}
+
+.form-error[hidden] {
+  display: none;
+}
+
 .reservation-form .button {
   justify-self: start;
+}
+
+.reserva-confirmacion {
+  margin-top: var(--space-5);
+  padding: var(--space-4);
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-success);
+  border-radius: var(--radius-md);
+  color: var(--color-text);
+  max-width: 60ch;
+}
+
+.reserva-confirmacion[hidden] {
+  display: none;
 }
 
 /* -------------------------------------------------------------
@@ -503,6 +655,7 @@ summary:focus-visible {
   margin-top: var(--space-6);
   display: flex;
   flex-direction: column;
+  align-items: flex-start;
   gap: var(--space-3);
 }
 
@@ -538,10 +691,107 @@ summary:focus-visible {
 }
 
 /* -------------------------------------------------------------
-   17. Panel de detalle de plato (reservado, Fase 2)
+   17. Panel de detalle de plato (bottom sheet / diálogo)
    ------------------------------------------------------------- */
+.dish-panel {
+  position: fixed;
+  inset: 0;
+  z-index: 70;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+
 .dish-panel[hidden] {
   display: none;
+}
+
+.dish-panel__overlay {
+  position: absolute;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+.dish-panel__dialog {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-height: 85vh;
+  overflow-y: auto;
+  background-color: var(--color-bg-alt);
+  border: 1px solid var(--color-border);
+  border-bottom: none;
+  border-radius: var(--radius-md) var(--radius-md) 0 0;
+  padding: var(--space-6) var(--space-5);
+  transform: translateY(100%);
+  opacity: 0;
+  transition: transform var(--transition-base), opacity var(--transition-base);
+}
+
+.dish-panel.is-open .dish-panel__dialog {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.dish-panel__cerrar {
+  position: absolute;
+  top: var(--space-3);
+  right: var(--space-3);
+  width: 2.25rem;
+  height: 2.25rem;
+  font-size: 1.5rem;
+  line-height: 1;
+  border-radius: var(--radius-md);
+  background-color: var(--color-surface);
+}
+
+.dish-panel__titulo {
+  color: var(--color-accent-light);
+  margin-bottom: var(--space-2);
+  padding-right: var(--space-8);
+}
+
+.dish-panel__categoria {
+  font-size: 0.8125rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--color-accent-light);
+  margin-bottom: var(--space-3);
+}
+
+.dish-panel__precio {
+  color: var(--color-accent-light);
+  font-weight: 600;
+  margin: var(--space-3) 0 0;
+}
+
+.dish-panel__seccion {
+  margin-top: var(--space-4);
+}
+
+.dish-panel__seccion h4 {
+  font-size: 0.9375rem;
+  margin-bottom: var(--space-2);
+  color: var(--color-text);
+}
+
+.dish-panel__lista {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+
+.dish-panel__lista li {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--space-1) var(--space-3);
+  font-size: 0.875rem;
+  color: var(--color-text-muted);
+}
+
+.dish-panel__contenido .button {
+  margin-top: var(--space-5);
 }
 
 /* -------------------------------------------------------------
@@ -625,9 +875,31 @@ summary:focus-visible {
     grid-template-columns: repeat(3, 1fr);
   }
 
+  .menu-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
   #horarios-ubicacion .section__layout {
     grid-template-columns: minmax(16rem, 22rem) 1fr;
     align-items: start;
+  }
+
+  /* A partir de tablet, el panel de detalle deja de ser bottom sheet
+     y pasa a comportarse como un diálogo centrado. */
+  .dish-panel {
+    align-items: center;
+    padding: var(--space-5);
+  }
+
+  .dish-panel__dialog {
+    max-width: 32rem;
+    border-radius: var(--radius-md);
+    border-bottom: 1px solid var(--color-border);
+    transform: translateY(1rem) scale(0.98);
+  }
+
+  .dish-panel.is-open .dish-panel__dialog {
+    transform: translateY(0) scale(1);
   }
 }
 
@@ -654,6 +926,10 @@ summary:focus-visible {
     flex-direction: row;
     gap: var(--space-5);
     font-size: 1rem;
+  }
+
+  .menu-grid {
+    grid-template-columns: repeat(3, 1fr);
   }
 
   .mobile-cta {
