@@ -826,7 +826,7 @@ button, input, textarea {
   font-family: var(--heading-font);
   font-size: 2.45rem;
   font-weight: var(--font-semi-bold);
-  line-height: 0.96;
+  line-height: 0.93;
   letter-spacing: -0.058em;
 }
 
@@ -4117,7 +4117,7 @@ body.project-dialog-open .site-header {
   }
 
   .hero-titulo {
-    font-size: clamp(3.45rem, 8vw, 4.2rem);
+    font-size: clamp(3.55rem, 8.3vw, 4.35rem);
   }
 
   .hero-puente-grid {
@@ -4194,7 +4194,7 @@ body.project-dialog-open .site-header {
   }
 
   .hero-titulo {
-    font-size: clamp(3.4rem, 5vw, 4.75rem);
+    font-size: clamp(3.7rem, 5.4vw, 5.2rem);
   }
 
   .hero-visual {
