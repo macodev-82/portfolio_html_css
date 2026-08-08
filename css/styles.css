@@ -758,6 +758,72 @@ button, input, textarea {
   opacity: 0.28;
 }
 
+.hero-simbolos {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
+  pointer-events: none;
+  user-select: none;
+}
+
+.hero-simbolo {
+  position: absolute;
+  left: var(--symbol-x);
+  top: var(--symbol-y);
+  font-family: monospace;
+  font-size: var(--symbol-size);
+  color: var(--symbol-color);
+  opacity: var(--symbol-opacity-effective);
+  line-height: 1;
+  white-space: nowrap;
+  --symbol-opacity-effective: var(--symbol-opacity);
+  --symbol-drift-x-effective: var(--symbol-drift-x);
+  --symbol-drift-y-effective: var(--symbol-drift-y);
+  --symbol-opacity-peak: min(calc(var(--symbol-opacity-effective) * 1.35), 0.26);
+  animation-name: hero-simbolo-flotar;
+  animation-duration: var(--symbol-duration);
+  animation-delay: var(--symbol-delay);
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  animation-play-state: paused;
+  will-change: transform, opacity;
+}
+
+.hero-simbolos--activos .hero-simbolo {
+  animation-play-state: running;
+}
+
+@keyframes hero-simbolo-flotar {
+  0% {
+    transform: translate3d(0, 0, 0);
+    opacity: var(--symbol-opacity-effective);
+  }
+  50% {
+    transform: translate3d(calc(var(--symbol-drift-x-effective) * 0.55), calc(var(--symbol-drift-y-effective) * 0.6), 0);
+    opacity: var(--symbol-opacity-peak);
+  }
+  100% {
+    transform: translate3d(var(--symbol-drift-x-effective), var(--symbol-drift-y-effective), 0);
+    opacity: calc(var(--symbol-opacity-effective) * 0.55);
+  }
+}
+
+.hero-simbolo:nth-child(n+10) {
+  display: none;
+}
+
+[data-theme="light"] .hero-simbolos {
+  display: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-simbolo {
+    animation: none;
+  }
+}
+
 .hero-grid {
   max-width: 1280px;
   width: min(92%, 1280px);
@@ -4008,6 +4074,16 @@ body.project-dialog-open .site-header {
     gap: 3.25rem;
   }
 
+  .hero-simbolo:nth-child(n+6) {
+    display: none;
+  }
+
+  .hero-simbolo {
+    --symbol-opacity-effective: min(var(--symbol-opacity), 0.15);
+    --symbol-drift-x-effective: clamp(-22px, var(--symbol-drift-x), 22px);
+    --symbol-drift-y-effective: clamp(-28px, var(--symbol-drift-y), 28px);
+  }
+
   .hero-disponibilidad {
     max-width: 100%;
     font-size: 0.75rem;
@@ -4187,6 +4263,28 @@ body.project-dialog-open .site-header {
 /* ── Laptop (min 1023px) ────────────────────────────────────────────────── */
 
 @media screen and (min-width: 1023px) {
+
+  .hero-simbolo:nth-child(n+10) {
+    display: block;
+  }
+
+  /* Símbolos del borde derecho a media altura: en el layout de 2 columnas
+     el panel técnico ocupa esa franja, así que se desplazan más a la
+     derecha para permanecer visibles junto a él, no detrás.
+     Se sobrescribe "left" directamente (no la variable --symbol-x) porque
+     el estilo inline de cada símbolo fija esa variable y ganaría siempre
+     sobre esta regla; "left" en cambio nunca se fija por inline.
+     Valores escalonados (91%/97%) en vez de una columna uniforme, para
+     evitar que 4/6/8/10 formen una línea rígida junto al símbolo 2. */
+  .hero-simbolo:nth-child(4),
+  .hero-simbolo:nth-child(8) {
+    left: 91%;
+  }
+
+  .hero-simbolo:nth-child(6),
+  .hero-simbolo:nth-child(10) {
+    left: 97%;
+  }
 
   .hero-grid {
     grid-template-columns: minmax(0, 1.18fr) minmax(0, 1fr);

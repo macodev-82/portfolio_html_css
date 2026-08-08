@@ -921,6 +921,79 @@ if (contactForm) {
 }
 
 
+// ── 9. HERO AMBIENT SYMBOLS ─────────────────────────────────────────────────
+
+const heroSimbolosContainer = document.querySelector('.hero-simbolos');
+
+const HERO_SYMBOLS = [
+  // Distribución en "escalera": borde izquierdo y derecho alternados,
+  // con separación vertical uniforme (~16-18%) para evitar racimos.
+  // 1 — destacado: opacidad 0.17–0.22, tamaño 1.3–1.6rem
+  { content: '{ }',   x: '6%',  y: '8%',  size: '1.4rem',  opacity: 0.19, duration: '12s',   delay: '0s',    driftX: '28px',  driftY: '-34px', color: 'var(--accent-color)' },
+  // 2 — secundario: opacidad 0.08–0.15, tamaño 0.9–1.25rem
+  // x/y reajustados: separación del símbolo 4 y del rail de escritorio (ver media query ≥1023px)
+  { content: '[ ]',   x: '82%', y: '13%', size: '1rem',    opacity: 0.11, duration: '16s',   delay: '1.5s',  driftX: '-22px', driftY: '26px',  color: 'var(--secondary-accent)' },
+  // 3 — secundario
+  { content: '( )',   x: '5%',  y: '26%', size: '1.05rem', opacity: 0.13, duration: '14s',   delay: '3s',    driftX: '20px',  driftY: '32px',  color: 'var(--accent-color)' },
+  // 4 — destacado (lado derecho, altura media: recibe ajuste de x solo en escritorio, ver media query ≥1023px)
+  // y reajustada: antes a solo 12% del símbolo 6 (39% vs 51%), ahora 17%
+  { content: '</>',   x: '79%', y: '34%', size: '1.55rem', opacity: 0.21, duration: '11s',   delay: '0.8s',  driftX: '-34px', driftY: '-24px', color: 'var(--accent-color)' },
+  // 5 — secundario
+  { content: '=>',    x: '7%',  y: '44%', size: '0.95rem', opacity: 0.09, duration: '17s',   delay: '4.5s',  driftX: '24px',  driftY: '-28px', color: 'var(--secondary-accent)' },
+  // 6 — destacado (lado derecho, altura media: ajuste de x en escritorio)
+  { content: '#',     x: '90%', y: '51%', size: '1.6rem',  opacity: 0.18, duration: '15s',   delay: '2s',    driftX: '-30px', driftY: '36px',  color: 'var(--accent-color)' },
+  // 7 — secundario
+  { content: '01',    x: '4%',  y: '62%', size: '1.1rem',  opacity: 0.14, duration: '13s',   delay: '5.5s',  driftX: '26px',  driftY: '-22px', color: 'var(--accent-color)' },
+  // 8 — secundario (lado derecho, altura media: ajuste de x en escritorio)
+  { content: 'def',   x: '88%', y: '69%', size: '0.9rem',  opacity: 0.10, duration: '18s',   delay: '6.5s',  driftX: '-18px', driftY: '-30px', color: 'var(--secondary-accent)' },
+  // 9 — secundario
+  { content: 'async', x: '8%',  y: '78%', size: '1rem',    opacity: 0.08, duration: '16s',   delay: '7s',    driftX: '32px',  driftY: '20px',  color: 'var(--accent-color)' },
+  // 10 — destacado (lado derecho, altura media: ajuste de x en escritorio)
+  // y reajustada: antes a solo 12% del símbolo 12 (85% vs 97%), ahora 14% simétrico con el 8
+  { content: 'API',   x: '89%', y: '83%', size: '1.35rem', opacity: 0.22, duration: '10s',   delay: '1s',    driftX: '-26px', driftY: '30px',  color: 'var(--accent-color)' },
+  // 11 — secundario
+  { content: 'const', x: '6%',  y: '94%', size: '1rem',    opacity: 0.09, duration: '14.5s', delay: '8s',    driftX: '22px',  driftY: '-26px', color: 'var(--accent-color)' },
+  // 12 — secundario (por debajo del panel técnico, sin riesgo de solapamiento)
+  { content: '_',     x: '93%', y: '97%', size: '1.15rem', opacity: 0.12, duration: '12.5s', delay: '9s',    driftX: '-24px', driftY: '-32px', color: 'var(--accent-color)' },
+];
+
+function createHeroSymbols() {
+  HERO_SYMBOLS.forEach((symbol) => {
+    const el = document.createElement('span');
+    el.className = 'hero-simbolo';
+    el.textContent = symbol.content;
+    el.style.setProperty('--symbol-x', symbol.x);
+    el.style.setProperty('--symbol-y', symbol.y);
+    el.style.setProperty('--symbol-size', symbol.size);
+    el.style.setProperty('--symbol-opacity', symbol.opacity);
+    el.style.setProperty('--symbol-duration', symbol.duration);
+    el.style.setProperty('--symbol-delay', symbol.delay);
+    el.style.setProperty('--symbol-drift-x', symbol.driftX);
+    el.style.setProperty('--symbol-drift-y', symbol.driftY);
+    el.style.setProperty('--symbol-color', symbol.color);
+    heroSimbolosContainer.append(el);
+  });
+}
+
+if (heroSimbolosContainer && !prefersReducedMotion) {
+  createHeroSymbols();
+
+  const heroSection = document.getElementById('inicio');
+
+  if (heroSection && 'IntersectionObserver' in window) {
+    const heroSymbolsObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        heroSimbolosContainer.classList.toggle('hero-simbolos--activos', entry.isIntersecting);
+      });
+    }, { threshold: 0.1 });
+
+    heroSymbolsObserver.observe(heroSection);
+  } else {
+    heroSimbolosContainer.classList.add('hero-simbolos--activos');
+  }
+}
+
+
 // ── INIT ───────────────────────────────────────────────────────────────────
 
 setLanguage(currentLang);
