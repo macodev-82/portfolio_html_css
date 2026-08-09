@@ -54,8 +54,9 @@ const i18n = {
     'projects-title':          'Proyectos destacados',
     'projects-intro':          'Tres proyectos privados en desarrollo, con hitos funcionales y evidencia técnica documentada.',
     'project-private':         'Privado · En desarrollo',
+    'family-status':           'Privado · v1 completo',
     'family-role':             'Caso de estudio privado de backend y desarrollo full-stack',
-    'family-desc':             'Aplicación privada que integra un catálogo multimedia con Emby mediante FastAPI y una interfaz web. Se presenta exclusivamente con contenido sanitizado, sin datos reales ni acceso al repositorio.',
+    'family-desc':             'Plataforma multimedia familiar privada construida con FastAPI y una integración segura y de solo lectura con Emby: catálogo dinámico, reproducción protegida, trailers y watchlist, con experiencia completamente responsive.',
     'family-stack-aria':       'Tecnologías de FamilyMovie',
     'family-action':           'Caso de estudio privado',
     'cheatsheet-role':         'Aplicación educativa privada',
@@ -75,15 +76,22 @@ const i18n = {
     'case-dialog-kicker':          'Caso de estudio · Proyecto privado',
     'case-preview-pending':        'Vista previa pendiente hasta completar el proyecto',
     'case-preview-aria':           'Espacio preparado para la vista previa del proyecto',
+    'case-preview-sanitized-aria': 'Vista previa sanitizada de la arquitectura privada de FamilyMovie',
     'case-features-title':         'Funciones verificadas',
     'case-stack-title':            'Tecnologías utilizadas',
     'case-previous':               'Proyecto anterior',
     'case-next':                   'Proyecto siguiente',
-    'family-case-desc':            'Proyecto backend/full-stack privado que integra Emby de forma segura y de solo lectura mediante FastAPI y HTTPX, con interfaz web y pruebas con pytest.',
-    'family-feature-emby':         'Integración segura y de solo lectura con Emby',
-    'family-feature-posters':      'Protección de pósteres mediante claves opacas',
-    'family-feature-interface':    'Interfaz web con HTML, CSS y JavaScript',
-    'family-feature-tests':        'Pruebas con pytest',
+    'family-case-desc':            'FamilyMovie nace de la necesidad de una plataforma multimedia familiar propia, sin exponer credenciales, tokens ni identificadores internos del servidor Emby en el navegador. FastAPI actúa como proxy seguro entre el frontend y Emby: el frontend solo trabaja con claves opacas y nunca se comunica directamente con Emby. v1 fue completada e integrada en main, con validación final en escritorio, tablet y móvil.',
+    'family-feature-catalog':      'Catálogo y hero dinámicos, con pósteres y backdrops',
+    'family-feature-player':       'Reproductor HTML5 con HTTP Range / 206 / 416 y seek nativo',
+    'family-feature-security':     'Claves opacas de reproducción e imagen; X-Emby-Token nunca expuesto',
+    'family-feature-trailers':     'Trailers integrados con youtube-nocookie',
+    'family-feature-watchlist':    'Watchlist local con localStorage',
+    'family-feature-responsive':   'Experiencia responsive validada en escritorio, tablet y móvil',
+    'family-feature-a11y':         'Soporte de movimiento reducido y retorno de foco en reproductor/trailers',
+    'family-feature-testing':      '149 pruebas automatizadas, Ruff, compileall y validación de sintaxis JS',
+    'family-feature-emby':         'Integración con Emby segura y de solo lectura, con secretos solo en backend',
+    'family-feature-complete':     'v1 completada e integrada en main (repositorio privado)',
     'cheatsheet-case-desc':        'Aplicación educativa privada con 39 ejercicios validados, búsqueda, favoritos e interfaz bilingüe ES/EN.',
     'cheatsheet-feature-exercises':'39 ejercicios validados',
     'cheatsheet-feature-search':   'Búsqueda de ejercicios',
@@ -230,8 +238,9 @@ const i18n = {
     'projects-title':          'Featured projects',
     'projects-intro':          'Three private projects in active development, with working milestones and documented technical evidence.',
     'project-private':         'Private · In development',
+    'family-status':           'Private · v1 complete',
     'family-role':             'Private backend and full-stack case study',
-    'family-desc':             'A private application that integrates a media catalog with Emby through FastAPI and a web interface. It is shown exclusively with sanitized content—never real data or repository access.',
+    'family-desc':             'A private family media platform built with FastAPI and a secure, read-only Emby integration: dynamic catalog, protected playback, trailers and watchlist, with a fully responsive experience.',
     'family-stack-aria':       'FamilyMovie technologies',
     'family-action':           'Private case study',
     'cheatsheet-role':         'Private educational application',
@@ -251,15 +260,22 @@ const i18n = {
     'case-dialog-kicker':          'Case study · Private project',
     'case-preview-pending':        'Preview deferred until the project is complete',
     'case-preview-aria':           'Reserved area for the project preview',
+    'case-preview-sanitized-aria': 'Sanitized preview of FamilyMovie\'s private architecture',
     'case-features-title':         'Verified features',
     'case-stack-title':            'Technologies used',
     'case-previous':               'Previous project',
     'case-next':                   'Next project',
-    'family-case-desc':            'A private backend/full-stack project that integrates Emby securely in read-only mode through FastAPI and HTTPX, with a web interface and pytest tests.',
-    'family-feature-emby':         'Secure, read-only Emby integration',
-    'family-feature-posters':      'Poster protection through opaque keys',
-    'family-feature-interface':    'Web interface with HTML, CSS, and JavaScript',
-    'family-feature-tests':        'Testing with pytest',
+    'family-case-desc':            'FamilyMovie was built to provide a private family media platform without exposing Emby credentials, tokens, or internal identifiers to the browser. FastAPI acts as a secure proxy between the frontend and Emby: the frontend only works with opaque keys and never talks to Emby directly. v1 was completed and merged into main, with final validation across desktop, tablet, and mobile.',
+    'family-feature-catalog':      'Dynamic catalog and hero, with posters and backdrops',
+    'family-feature-player':       'HTML5 player with HTTP Range / 206 / 416 and native seek',
+    'family-feature-security':     'Opaque playback/image keys; X-Emby-Token never exposed',
+    'family-feature-trailers':     'Trailers embedded via youtube-nocookie',
+    'family-feature-watchlist':    'Local watchlist with localStorage',
+    'family-feature-responsive':   'Responsive experience validated on desktop, tablet, and mobile',
+    'family-feature-a11y':         'Reduced-motion support and focus return in player/trailers',
+    'family-feature-testing':      '149 automated tests, Ruff, compileall, and JS syntax validation',
+    'family-feature-emby':         'Secure, read-only Emby integration, with secrets kept backend-side',
+    'family-feature-complete':     'v1 completed and merged into main (private repository)',
     'cheatsheet-case-desc':        'A private educational application with 39 validated exercises, search, favorites, and a bilingual ES/EN interface.',
     'cheatsheet-feature-exercises':'39 validated exercises',
     'cheatsheet-feature-search':   'Exercise search',
@@ -660,10 +676,16 @@ const projectCaseStudies = [
     descriptionKey: 'family-case-desc',
     stack: ['Python', 'FastAPI', 'HTTPX', 'HTML', 'CSS', 'JavaScript', 'pytest'],
     featureKeys: [
+      'family-feature-catalog',
+      'family-feature-player',
+      'family-feature-security',
+      'family-feature-trailers',
+      'family-feature-watchlist',
+      'family-feature-responsive',
+      'family-feature-a11y',
+      'family-feature-testing',
       'family-feature-emby',
-      'family-feature-posters',
-      'family-feature-interface',
-      'family-feature-tests',
+      'family-feature-complete',
     ],
   },
   {
@@ -703,6 +725,9 @@ const projectDialogDescription = projectDialog.querySelector('#project-dialog-de
 const projectDialogIndex = projectDialog.querySelector('#project-dialog-index');
 const projectDialogFeatures = projectDialog.querySelector('#project-dialog-features');
 const projectDialogStack = projectDialog.querySelector('#project-dialog-stack');
+const projectDialogPreview = projectDialog.querySelector('.project-dialog-preview');
+const projectDialogPreviewPending = projectDialog.querySelector('[data-project-preview-pending]');
+const projectDialogPreviewSanitized = projectDialog.querySelector('[data-project-preview-sanitized]');
 const projectDialogPosition = projectDialog.querySelector('[data-project-dialog-position]');
 const projectDialogCloseBtn = projectDialog.querySelector('[data-project-dialog-close]');
 const projectDialogPreviousBtn = projectDialog.querySelector('[data-project-dialog-previous]');
@@ -744,6 +769,13 @@ function updateProjectDialogContent() {
     project.featureKeys.map(key => i18n[currentLang][key]),
   );
   replaceProjectDialogList(projectDialogStack, project.stack);
+
+  const isSanitizedPreview = project.id === 'familymovie';
+  const previewAriaKey = isSanitizedPreview ? 'case-preview-sanitized-aria' : 'case-preview-aria';
+  projectDialogPreviewPending.hidden = isSanitizedPreview;
+  projectDialogPreviewSanitized.hidden = !isSanitizedPreview;
+  projectDialogPreview.setAttribute('data-i18n-aria', previewAriaKey);
+  projectDialogPreview.setAttribute('aria-label', i18n[currentLang][previewAriaKey]);
 }
 
 function openProjectDialog(projectId, trigger) {
