@@ -382,14 +382,15 @@
             <div class="project-content">
               <div class="project-meta">
                 <span>01 / FEATURED</span>
-                <span class="project-visibility" data-i18n="project-private">Privado · En desarrollo</span>
+                <span class="project-visibility" data-i18n="family-status">Privado · v1 completo</span>
               </div>
               <h3>FamilyMovie</h3>
               <p class="project-role" data-i18n="family-role">Caso de estudio privado de backend y desarrollo full-stack</p>
               <p data-i18n="family-desc">
-                Aplicación privada que integra un catálogo multimedia con Emby mediante
-                FastAPI y una interfaz web. Se presenta exclusivamente con contenido
-                sanitizado, sin datos reales ni acceso al repositorio.
+                Plataforma multimedia familiar privada construida con FastAPI y una
+                integración segura y de solo lectura con Emby: catálogo dinámico,
+                reproducción protegida, trailers y watchlist, con experiencia
+                completamente responsive.
               </p>
               <ul class="project-stack"
                   aria-label="Tecnologías de FamilyMovie"
@@ -870,9 +871,30 @@
           aria-label="Espacio preparado para la vista previa del proyecto"
           data-i18n-aria="case-preview-aria"
         >
-          <div class="project-dialog-preview-label">
+          <div class="project-dialog-preview-label" data-project-preview-pending>
             <span aria-hidden="true">16:9 / PREVIEW</span>
             <strong data-i18n="case-preview-pending">Vista previa pendiente hasta completar el proyecto</strong>
+          </div>
+
+          <div class="project-dialog-preview-sanitized" data-project-preview-sanitized hidden>
+            <div class="project-window-bar">
+              <span class="window-dots"><i></i><i></i><i></i></span>
+              <span>familymovie / sanitized-view</span>
+              <span>private</span>
+            </div>
+            <div class="family-interface">
+              <aside class="family-rail">
+                <span>FM</span><i></i><i></i><i></i>
+              </aside>
+              <div class="family-canvas">
+                <span class="visual-kicker">CATALOG / PROFILES · SANITIZED</span>
+                <div class="family-hero-frame"></div>
+                <div class="family-card-row"><i></i><i></i><i></i><i></i></div>
+                <div class="architecture-flow">
+                  <span>FastAPI</span><i></i><span>HTTPX</span><i></i><span>Web UI</span>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
 
