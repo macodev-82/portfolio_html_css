@@ -1,0 +1,259 @@
+@import "tailwindcss";
+
+/* Class-based dark mode: ThemeContext toggles `.dark` on <html>.
+   Without this, Tailwind v4's `dark:` variant defaults to
+   prefers-color-scheme and ignores the toggle entirely. */
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --font-serif: 'Instrument Serif', Georgia, Cambria, serif;
+  --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-mono: 'Fira Code', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+}
+
+:root {
+  color-scheme: light;
+}
+
+html.dark {
+  color-scheme: dark;
+}
+
+/* ==========================================================
+   PREMIUM IVORY LIGHT MODE — palette retint
+   Overrides Tailwind's default light-mode color tokens with a
+   warm ivory/bone palette. Scoped to :root:not(.dark) so Dark
+   Mode keeps the original approved token values untouched.
+   Unlayered (not @layer), so it wins over Tailwind's @layer
+   theme regardless of source order.
+   ========================================================== */
+:root:not(.dark) {
+  --color-slate-50: #faf8f2;   /* L0 — page: warm ivory / bone */
+  --color-slate-100: #eef2f6;  /* L1 — alternate sections: pale cool slate */
+  --color-white: #fcfcfa;      /* L2 — cards: near-white, not clinical */
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(148, 163, 184, 0.4);
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(148, 163, 184, 0.7);
+}
+
+.dark ::-webkit-scrollbar-thumb {
+  background: rgba(51, 65, 85, 0.6);
+}
+
+.dark ::-webkit-scrollbar-thumb:hover {
+  background: rgba(71, 85, 105, 0.9);
+}
+
+/* Grid background helper */
+.bg-grid-pattern {
+  background-size: 32px 32px;
+  background-image:
+    linear-gradient(to right, rgba(148, 163, 184, 0.08) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(148, 163, 184, 0.08) 1px, transparent 1px);
+}
+
+.dark .bg-grid-pattern {
+  background-image:
+    linear-gradient(to right, rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+}
+
+/* Dot pattern */
+.bg-dot-pattern {
+  background-image: radial-gradient(rgba(100, 116, 139, 0.15) 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+.dark .bg-dot-pattern {
+  background-image: radial-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+/* Focus styles for strict accessibility */
+*:focus-visible {
+  outline: 2px solid #f59e0b;
+  outline-offset: 2px;
+}
+
+/* ==========================================================
+   ATMOSPHERIC POLISH LAYER
+   Purely decorative background system. Never affects layout
+   geometry, spacing, or component dimensions. All layers are
+   pointer-events: none and aria-hidden in markup.
+   ========================================================== */
+
+/* -- fading technical grid (radial mask, non-uniform) -- */
+.atmos-grid-fade {
+  background-size: 40px 40px;
+  background-image:
+    linear-gradient(to right, rgba(100, 116, 139, 0.10) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(100, 116, 139, 0.10) 1px, transparent 1px);
+  -webkit-mask-image: radial-gradient(ellipse 70% 60% at 50% 40%, #000 0%, transparent 75%);
+  mask-image: radial-gradient(ellipse 70% 60% at 50% 40%, #000 0%, transparent 75%);
+}
+
+.dark .atmos-grid-fade {
+  background-image:
+    linear-gradient(to right, rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+}
+
+/* -- fine noise texture, ultra low opacity -- */
+.atmos-noise {
+  opacity: 0.025;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  mix-blend-mode: overlay;
+}
+
+.dark .atmos-noise {
+  opacity: 0.05;
+  mix-blend-mode: soft-light;
+}
+
+/* -- slow ambient drift, tens of seconds, transform/opacity only -- */
+@keyframes atmos-drift-a {
+  0%, 100% { transform: translate3d(0, 0, 0) scale(1); }
+  50% { transform: translate3d(3%, -4%, 0) scale(1.06); }
+}
+
+@keyframes atmos-drift-b {
+  0%, 100% { transform: translate3d(0, 0, 0) scale(1); }
+  50% { transform: translate3d(-4%, 3%, 0) scale(1.08); }
+}
+
+@keyframes atmos-fade-in {
+  from { opacity: 0; }
+  to { opacity: var(--atmos-target-opacity, 1); }
+}
+
+.atmos-layer-a {
+  animation: atmos-drift-a 46s ease-in-out infinite;
+}
+
+.atmos-layer-b {
+  animation: atmos-drift-b 62s ease-in-out infinite;
+}
+
+.atmos-reveal {
+  opacity: 0.35;
+  transition: opacity 1.1s ease-out;
+}
+
+.atmos-reveal.is-visible {
+  opacity: 1;
+}
+
+/* -- pointer spotlight (desktop, fine pointer only) -- */
+.atmos-spotlight {
+  background: radial-gradient(
+    480px circle at var(--spot-x, 50%) var(--spot-y, 50%),
+    rgba(245, 158, 11, 0.06),
+    transparent 70%
+  );
+  transition: opacity 0.4s ease;
+}
+
+.dark .atmos-spotlight {
+  background: radial-gradient(
+    520px circle at var(--spot-x, 50%) var(--spot-y, 50%),
+    rgba(56, 189, 248, 0.05),
+    transparent 70%
+  );
+}
+
+/* -- card micro-lighting: soft border + interior highlight on hover -- */
+.atmos-card {
+  position: relative;
+  isolation: isolate;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.atmos-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  border-radius: inherit;
+  background: radial-gradient(circle at 30% 20%, rgba(245, 158, 11, 0.10), transparent 60%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+}
+
+.atmos-card:hover::before {
+  opacity: 1;
+}
+
+.dark .atmos-card:hover {
+  border-color: rgba(245, 158, 11, 0.35);
+  box-shadow: 0 0 0 1px rgba(245, 158, 11, 0.08), 0 20px 40px -20px rgba(245, 158, 11, 0.25);
+}
+
+/* -- button light sweep on hover -- */
+.btn-sheen {
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-sheen::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -60%;
+  width: 40%;
+  height: 100%;
+  background: linear-gradient(115deg, transparent, rgba(255, 255, 255, 0.35), transparent);
+  transform: skewX(-15deg);
+  transition: left 0.7s ease;
+  pointer-events: none;
+}
+
+.btn-sheen:hover::after {
+  left: 130%;
+}
+
+/* -- decorative technical marks -- */
+.atmos-mark {
+  color: rgba(100, 116, 139, 0.35);
+}
+
+.dark .atmos-mark {
+  color: rgba(148, 163, 184, 0.25);
+}
+
+/* -- reduced motion: kill all ambient movement, keep static layers -- */
+@media (prefers-reduced-motion: reduce) {
+  .atmos-layer-a,
+  .atmos-layer-b {
+    animation: none !important;
+  }
+
+  .atmos-reveal {
+    opacity: 1 !important;
+    transition: none !important;
+  }
+
+  .atmos-spotlight {
+    display: none !important;
+  }
+
+  .btn-sheen::after {
+    display: none !important;
+  }
+}

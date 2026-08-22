@@ -1,3 +1,9 @@
+# Dependencies and build output
+node_modules/
+dist/
+dist-ssr/
+*.local
+
 # Sistema operativo
 .DS_Store
 Thumbs.db
