@@ -652,12 +652,6 @@
   min-height: 50px;
 }
 
-.websites-page .websites-demo-actions .studio-button:disabled {
-  opacity: 0.55;
-  cursor: not-allowed;
-  pointer-events: none;
-}
-
 @media screen and (min-width: 820px) {
   .websites-page .websites-demo-card {
     grid-template-columns: minmax(0, 1.08fr) minmax(340px, 0.92fr);
