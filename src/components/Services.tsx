@@ -193,14 +193,19 @@ export const Services: React.FC = () => {
             {t.services.items.map((service, idx) => {
               const Icon = icons[idx] || Layout;
               const isSelected = selectedServiceIdx === idx;
+              const isWebsiteService = service.iconName === 'Globe';
+              const ItemWrapper = isWebsiteService ? motion.a : motion.div;
+              const itemInteractionProps = isWebsiteService
+                ? { href: '/websites/' }
+                : { onClick: () => setSelectedServiceIdx(idx) };
               return (
-                <motion.div
+                <ItemWrapper
                   key={service.number}
                   id={`service-item-${idx}`}
                   whileHover={{ x: 4 }}
                   transition={{ duration: 0.2 }}
-                  onClick={() => setSelectedServiceIdx(idx)}
-                  className={`p-6 rounded-2xl border transition-all duration-300 cursor-pointer ${
+                  {...itemInteractionProps}
+                  className={`p-6 rounded-2xl border transition-all duration-300 cursor-pointer block ${
                     isSelected
                       ? 'bg-white dark:bg-slate-900 border-amber-500/40 dark:border-amber-500/40 shadow-md'
                       : 'bg-white/80 dark:bg-slate-900/60 border-slate-200 dark:border-slate-800 hover:border-slate-300 dark:hover:border-slate-700'
@@ -245,7 +250,7 @@ export const Services: React.FC = () => {
                       </div>
                     </div>
                   </div>
-                </motion.div>
+                </ItemWrapper>
               );
             })}
           </div>

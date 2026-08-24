@@ -32,7 +32,7 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
   <script>
     try {
@@ -62,29 +62,18 @@
           aria-label="Maahcodev — Go to portfolio"
           data-i18n-aria="websites-nav-logo-aria"
         >
-          <img
-            class="nav-signature nav-signature--dark"
-            src="/assets/brand/maahcodev_signature_emerald.png"
-            width="944"
-            height="259"
-            alt=""
-          >
-          <img
-            class="nav-signature nav-signature--light"
-            src="/assets/brand/maahcodev_signature_deep_emerald.png"
-            width="944"
-            height="259"
-            alt=""
-          >
+          <span class="websites-brand-slash" aria-hidden="true">~/</span>
+          <span class="websites-brand-name">maahcodev</span>
+          <span class="websites-brand-dot" aria-hidden="true"></span>
         </a>
 
         <div class="nav-right">
           <ul class="nav-links websites-nav-links" id="websites-nav-menu">
             <li><a href="#benefits" data-i18n="websites-nav-benefits">Benefits</a></li>
             <li><a href="#demos" data-i18n="websites-nav-demos">Demos</a></li>
-            <li><a href="/#proyectos" data-i18n="websites-nav-portfolio">Portfolio</a></li>
+            <li><a href="/#projects" data-i18n="websites-nav-portfolio">Portfolio</a></li>
             <li class="nav-cta-item">
-              <a href="/#contacto" class="nav-cta" data-i18n="websites-nav-cta">Request a Quote</a>
+              <a href="/#contact" class="nav-cta" data-i18n="websites-nav-cta">Request a Quote</a>
             </li>
           </ul>
 
@@ -147,7 +136,7 @@
           </p>
 
           <div class="websites-hero-actions">
-            <a href="/#contacto" class="studio-button studio-button--primary">
+            <a href="/#contact" class="studio-button studio-button--primary">
               <span data-i18n="websites-hero-primary">Request a Quote</span>
               <svg class="line-icon" viewBox="0 0 24 24" aria-hidden="true">
                 <path d="M5 12h14M14 7l5 5-5 5"></path>
@@ -246,15 +235,10 @@
 
         <div class="websites-demo-grid">
           <article class="websites-demo-card">
-            <a
-              class="websites-demo-media"
-              href="/demos/home-cleaning/"
-              aria-label="Open the ClaraNest Cleaning Co. live demo"
-              data-i18n-aria="websites-demo-open-aria"
-            >
+            <div class="websites-demo-media">
               <img
-                src="/assets/demos/home-cleaning/hero-home-cleaning.webp"
-                alt="ClaraNest Cleaning Co. website demo preview"
+                src="/assets/demos/claranest/hero-claranest.webp"
+                alt="CLARANEST — premium residential cleaning platform preview"
                 loading="lazy"
                 decoding="async"
               >
@@ -262,45 +246,86 @@
               <span class="websites-demo-badge" data-i18n="websites-demo-fictional">
                 Fictional demo
               </span>
-            </a>
+            </div>
 
             <div class="websites-demo-content">
               <div class="websites-demo-meta">
-                <span data-i18n="websites-demo-type">Service business website</span>
+                <span data-i18n="websites-demo-type">Service platform &amp; architecture showcase</span>
                 <span aria-hidden="true">01 / 01</span>
               </div>
 
-              <h3>ClaraNest Cleaning Co.</h3>
+              <h3>CLARANEST</h3>
 
               <p data-i18n="websites-demo-description">
-                A premium bilingual concept for a home-cleaning company, created
-                to demonstrate clear services, trustworthy presentation and an
-                easy route toward requesting an estimate.
+                A premium bilingual residential cleaning platform with a
+                real-time quoting and booking engine, live service tracking
+                and a before/after showcase — paired with an interactive
+                enterprise architecture demo covering microservices,
+                observability, security and CI/CD.
               </p>
 
               <ul class="websites-demo-tags">
+                <li data-i18n="websites-demo-tag-estimator">Interactive Estimator</li>
+                <li data-i18n="websites-demo-tag-dispatch">Live Dispatch</li>
+                <li data-i18n="websites-demo-tag-before-after">Before/After</li>
                 <li data-i18n="websites-demo-tag-bilingual">Bilingual ES/EN</li>
                 <li data-i18n="websites-demo-tag-responsive">Responsive</li>
                 <li data-i18n="websites-demo-tag-accessible">Accessible</li>
               </ul>
 
+              <ul class="websites-demo-gallery">
+                <li>
+                  <img
+                    src="/assets/demos/claranest/gallery-estimator.webp"
+                    alt="CLARANEST interactive pricing estimator"
+                    loading="lazy"
+                    decoding="async"
+                  >
+                </li>
+                <li>
+                  <img
+                    src="/assets/demos/claranest/gallery-live-dispatch.webp"
+                    alt="CLARANEST live dispatch tracking screen"
+                    loading="lazy"
+                    decoding="async"
+                  >
+                </li>
+                <li>
+                  <img
+                    src="/assets/demos/claranest/gallery-architecture.webp"
+                    alt="CLARANEST microservices architecture showcase"
+                    loading="lazy"
+                    decoding="async"
+                  >
+                </li>
+                <li>
+                  <img
+                    src="/assets/demos/claranest/gallery-cicd.webp"
+                    alt="CLARANEST CI/CD pipeline showcase"
+                    loading="lazy"
+                    decoding="async"
+                  >
+                </li>
+              </ul>
+
               <div class="websites-demo-actions">
-                <a
-                  href="/demos/home-cleaning/"
+                <button
+                  type="button"
                   class="studio-button studio-button--primary"
+                  disabled
                 >
-                  <span data-i18n="websites-demo-live">View Live Demo</span>
+                  <span data-i18n="websites-demo-live">Live Demo Coming Soon</span>
                   <svg class="line-icon" viewBox="0 0 24 24" aria-hidden="true">
                     <path d="M5 12h14M14 7l5 5-5 5"></path>
                   </svg>
-                </a>
+                </button>
 
                 <a
-                  href="/#contacto"
+                  href="/#contact"
                   class="studio-button studio-button--secondary"
                 >
                   <span data-i18n="websites-demo-similar">
-                    Request a Similar Website
+                    Request a Similar Project
                   </span>
                   <svg class="line-icon" viewBox="0 0 24 24" aria-hidden="true">
                     <path d="M5 12h14M14 7l5 5-5 5"></path>
@@ -517,7 +542,7 @@
           </p>
         </div>
 
-        <a href="/#contacto" class="studio-button studio-button--primary">
+        <a href="/#contact" class="studio-button studio-button--primary">
           <span data-i18n="websites-mid-cta-button">Request a Quote</span>
           <svg class="line-icon" viewBox="0 0 24 24" aria-hidden="true">
             <path d="M5 12h14M14 7l5 5-5 5"></path>
@@ -544,7 +569,7 @@
         <a href="/" data-i18n="websites-footer-portfolio">Portfolio</a>
         <a href="#benefits" data-i18n="websites-footer-benefits">Benefits</a>
         <a href="#demos" data-i18n="websites-footer-demos">Demos</a>
-        <a href="/#contacto" data-i18n="websites-footer-contact">Contact</a>
+        <a href="/#contact" data-i18n="websites-footer-contact">Contact</a>
       </nav>
 
       <p class="websites-footer-rights" data-i18n="websites-footer-rights">
